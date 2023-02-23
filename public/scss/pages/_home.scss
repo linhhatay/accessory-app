@@ -1,0 +1,33 @@
+.section {
+    padding: 0 15px 30px;
+}
+
+.section__title {
+    margin-bottom: 21px;
+    h3 {
+        display: inline-block;
+        font-weight: 400;
+        font-size: 17.5px;
+        margin-bottom: 8px;
+        padding-bottom: 7.5px;
+        border-bottom: 2px solid #d0011b;
+        text-transform: capitalize;
+    }
+}
+
+.section__main {
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    // overflow: hidden;
+
+    // @include tablet {
+    //     grid-template-columns: repeat(3, 4fr);
+    // }
+
+    // @include mobile {
+    //     grid-template-columns: 1fr 1fr;
+    // }
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
