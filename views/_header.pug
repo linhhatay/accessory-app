@@ -1,0 +1,56 @@
+
+header.header
+  div
+    .header__main
+      .header__inner
+        .header__logo
+          a(href="/")
+            img(src="https://phukienabc.com/wp-content/uploads/2022/10/phukienabc.svg", alt="logo")
+          .header__menu
+            .header__menu-icon
+              i.fa-solid.fa-bars
+              span Sản Phẩm
+            ul.header__menu-wrap
+              li.header__menu-item
+                a(href="/") Dây cáp
+                ul.header__sub-menu
+                  li
+                    a(href="/") Cáp HDMI
+                  li
+                    a(href="/") Cáp HDMI
+                  li
+                    a(href="/") Cáp HDMI
+              li.header__menu-item
+                a(href="/") Dây cáp
+              li.header__menu-item
+                a(href="/") Dây cáp
+              li.header__menu-item
+                a(href="/") Dây cáp
+
+        .header__search
+          .header__search-form
+            input(type="search", placeholder="Tìm kiếm ...", autocomplete="off")
+            button
+              i.fa-solid.fa-magnifying-glass
+              
+        .header__nav
+          ul
+            li
+              a(href="tel:0985588012")
+                span
+                  | Gọi mua hàng
+                  b 098.5588.012
+                i.fa-solid.fa-phone-flip
+            li.header-divider
+            li
+              a(href="tel:0858577555")
+                span
+                  | Kinh Doanh 1
+                  b 0858.577.555
+                i.fa-solid.fa-phone-flip
+            li.header-divider
+            li.header-cart
+              a.header__nav-cart
+                span Giỏ hàng 
+                i.fa-solid.fa-bag-shopping
+                span.cart-quantity 0
