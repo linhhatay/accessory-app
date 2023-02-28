@@ -10,6 +10,12 @@
   margin: 0;
   box-sizing: border-box; }
 
+body {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: Helvetica, Arial, sans-serif; }
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px; }
@@ -514,3 +520,169 @@ a {
 .widget__title {
   font-size: 1.35em;
   line-height: 1.05; }
+
+.pay__header {
+  padding: 20px 15px 0 15px;
+  min-height: 60px; }
+  .pay__header nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: 0;
+    font-family: 'Montserrat', sans-serif;
+    padding: 15px 0; }
+    .pay__header nav a:first-child,
+    .pay__header nav a:last-child {
+      color: #ccc; }
+    .pay__header nav span {
+      margin: 0 0.5em;
+      text-align: right; }
+
+.pay__container {
+  padding: 30px 15px;
+  max-width: 1170px;
+  margin: 0 auto; }
+
+.woocommerce__form {
+  margin-bottom: 1em; }
+  .woocommerce__form-box {
+    display: grid;
+    grid-template-columns: 7fr 5fr; }
+    .woocommerce__form-box > div {
+      padding: 0 15px 30px; }
+    @media only screen and (max-width: 849px) {
+      .woocommerce__form-box {
+        display: flex;
+        flex-direction: column; } }
+
+.customer-info {
+  border-top: 2px solid #ddd; }
+  .customer-info h3 {
+    font-size: 1.75em;
+    font-weight: 400;
+    padding-top: 25px;
+    margin-bottom: 0.5em;
+    font-family: 'Montserrat', sans-serif; }
+  .customer-info p {
+    margin-bottom: 0.5em; }
+    .customer-info p input {
+      padding: 5px 10px;
+      width: 100%;
+      border: 1px solid #e5e5e5;
+      margin-bottom: 1em;
+      font: inherit; }
+    @media only screen and (max-width: 549px) {
+      .customer-info p {
+        width: 100% !important; } }
+  .customer-info .form__group--first {
+    width: 48%;
+    float: left;
+    margin-right: 4%;
+    margin-bottom: 0.5em; }
+  .customer-info .form__group--last {
+    width: 48%;
+    float: left;
+    margin-bottom: 0.5em; }
+
+.order {
+  border: 1px solid #e5e5e5;
+  padding: 15px 30px 30px; }
+  .order h3 {
+    font-size: 1.75em;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 10px;
+    font-weight: 400;
+    margin-bottom: 0.5em; }
+  .order > table {
+    width: 100%;
+    font-size: 14px;
+    border-spacing: 0;
+    line-height: 1.05;
+    margin-bottom: 1em; }
+    .order > table th,
+    .order > table td {
+      border-bottom: 1px solid #ececec;
+      padding: 0.5em; }
+    .order > table span {
+      color: #d0011b; }
+    .order > table thead tr th {
+      white-space: nowrap; }
+      .order > table thead tr th:first-child {
+        padding-left: 0;
+        text-align: left; }
+      .order > table thead tr th:last-child {
+        padding-right: 0;
+        text-align: right; }
+    .order > table tbody tr td {
+      line-height: 1.3;
+      padding: 15px 7px; }
+      .order > table tbody tr td:first-child {
+        padding-left: 0;
+        text-align: left; }
+      .order > table tbody tr td:last-child {
+        padding-right: 0;
+        text-align: right; }
+      .order > table tbody tr td dl {
+        margin: 0.5em 0;
+        opacity: 0.9; }
+        .order > table tbody tr td dl dt {
+          margin-right: 5px;
+          float: left;
+          clear: both; }
+    .order > table tfoot tr th {
+      padding-left: 0;
+      text-align: left; }
+    .order > table tfoot tr td {
+      padding-right: 0;
+      line-height: 1.3;
+      text-align: right; }
+    .order > table tfoot tr:nth-child(2) td {
+      padding: 0;
+      width: 100%;
+      border: none; }
+      .order > table tfoot tr:nth-child(2) td > table {
+        border-spacing: 0;
+        font-size: 14px;
+        width: 100%; }
+        .order > table tfoot tr:nth-child(2) td > table tr th {
+          line-height: 1.05;
+          width: 30%; }
+        .order > table tfoot tr:nth-child(2) td > table tr td {
+          text-align: right;
+          padding: 0.5em;
+          border-bottom: 1px solid #ececec;
+          padding-right: 0; }
+          .order > table tfoot tr:nth-child(2) td > table tr td div {
+            font-weight: 400;
+            padding: 0.5em 0;
+            opacity: 0.8;
+            flex: 1; }
+          .order > table tfoot tr:nth-child(2) td > table tr td label {
+            margin-right: 5px; }
+
+.pay-method p {
+  margin-bottom: 10px; }
+
+.pay-method ul {
+  margin-left: 0.2em;
+  margin-bottom: 1em;
+  list-style: none; }
+  .pay-method ul input {
+    display: inline;
+    margin: 10px 10px 10px 0;
+    font-size: 16px; }
+
+.pay-method button {
+  color: #fff;
+  background-color: #d0011b;
+  border-color: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  border: 1px solid transparent;
+  line-height: 2.4em;
+  min-height: 2.5em;
+  margin-right: 1em;
+  padding: 0 1.2em;
+  letter-spacing: 0.03em; }

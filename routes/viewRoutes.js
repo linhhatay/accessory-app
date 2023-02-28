@@ -9,4 +9,8 @@ router.get('/cart', function (req, res) {
     res.render('cart');
 });
 
+router.get('/pay', function (req, res) {
+    res.render('./pages/pay');
+});
+
 module.exports = router;
