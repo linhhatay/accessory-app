@@ -1,10 +1,11 @@
 @import 'abstracts/mixins';
-@import 'abstracts/_utilities';
 @import 'abstracts/variables';
 
 @import 'base/_base';
 @import 'base/_typography';
+@import 'base/_utilities';
 
+@import 'components/_breadCrumbs';
 @import 'components/_cart';
 @import 'components/_product';
 
@@ -13,29 +14,13 @@
 @import 'layout/_navigation';
 
 @import 'pages/_home';
+@import 'pages/_productDetails';
 
-a {
-    text-decoration: none;
-    color: #333;
-}
-
-.cart-quantity {
-    margin-left: 5px;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background: #d0011b;
-    color: #fff;
-    line-height: 40px;
-    text-align: center;
-    border-radius: 0 3px 3px 0;
+.wrapper {
+    padding-top: 30px;
 }
 
 .container {
-    padding-top: 30px;
     max-width: 1170px;
     margin: 0 auto;
 }

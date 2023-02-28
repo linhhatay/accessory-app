@@ -1,34 +1,43 @@
-mixin product
-  .product
-      div
-        img.product__image(src='https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg' alt='')
-      .product__name
-        | Tai Nghe Dareu EH416 D&acirc;y USB, Gi&#x1EA3; L&#x1EAD;p 7.1
-      .product-info
-        .product-info__rating
-          i.fa-solid.fa-star
-          i.fa-solid.fa-star
-          i.fa-solid.fa-star
-          i.fa-solid.fa-star
-          i.fa-solid.fa-star
-        .product-info__price
-          span.product-info__price--sale
-            | 500.000
-            span.current-symbol &#x20AB;
-          span.product-info__price--current
-            | 300.000
-            span.current-symbol &#x20AB;
-        .product-info__status
-          i.fa-solid.fa-check
-          |                 C&ograve;n h&agrave;ng
+mixin product(name)
+  .product-box
+      .product-box__badge
+        span -37%
+      .product-box__image
+        img(src='https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg' alt='')
+      .product-box__text
+        .product-box__text-name
+          = name
+        .product-box__text-info
+          .product-box__rating
+            i.fa-solid.fa-star
+            i.fa-solid.fa-star
+            i.fa-solid.fa-star
+            i.fa-solid.fa-star
+            i.fa-solid.fa-star
+          .product-box__price
+            span.product-box__price--sale
+              | 500.000
+              span.current-symbol &#x20AB;
+            span.product-box__price--current
+              | 300.000
+              span.current-symbol &#x20AB;
+          .product-box__status
+            i.fa-solid.fa-check
+            | Còn hàng
 
 
-section.section
+section.section.featured-products
   .section__title
-    h3 S&#x1EA3;n ph&#x1EA9;m b&aacute;n ch&#x1EA1;y
+    h3
+      span Sản Phẩm Bán Chạy
   .section__main
-    +product
-    +product
-    +product
-    +product
-    +product
+    button.btn-slider.btn--prev
+      i.fa-solid.fa-chevron-left
+    +product('Chuột Dareu EM908 (Đen/Trắng/Hồng)')
+    +product('Tai Nghe Dareu EH416 Dây USB, Giả Lập 7.1')
+    +product('Bàn Phím Cơ Dareu EK87 Đen/Trắng/Hồng (Blue/Red/Brown Switch)')
+    +product('Chuột Không Dây Dareu LM115G (Đen/Trắng/Hồng)')
+    +product('Bàn Phím Cơ Dareu EK810 Đen/Hồng (Blue/Red/Brown Switch)')
+    button.btn-slider.btn--next
+      i.fa-solid.fa-chevron-right
+

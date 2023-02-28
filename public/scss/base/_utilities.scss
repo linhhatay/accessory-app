@@ -5,3 +5,9 @@
     width: 100%;
     max-width: 60px;
 }
+
+@include tablet {
+    .hide-on-tablet {
+        display: none;
+    }
+}
