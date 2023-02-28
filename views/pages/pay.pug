@@ -1,0 +1,91 @@
+extends ../base
+
+block content
+    .pay 
+        .pay__header 
+            div 
+                nav
+                    a(href="") Giỏ Hàng 
+                    span 
+                        i.fa-solid.fa-chevron-right
+                    a(href="") Thanh Toán	 
+                    span 
+                        i.fa-solid.fa-chevron-right
+                    a(href="") Đặt Hàng
+        .pay__container
+            div.woocommerce
+                form.woocommerce__form
+                    div.woocommerce__form-box
+                        div 
+                            div.customer-info
+                                h3 Thông tin thanh toán
+                                p 
+                                    label Họ và tên *
+                                    input(type='text', placeholder='Họ tên của bạn')
+                                p.form__group--first
+                                    label Số điện thoại *
+                                    input(type='text')  
+                                p.form__group--last
+                                    label Địa chỉ email (không bắt buộc)
+                                    input(type='text')  
+                                p.form__group--first
+                                    label Tỉnh/Thành phố *
+                                    input(type='text', placeholder='Họ tên của bạn')  
+                                p.form__group--last
+                                    label Quận/Huyện *
+                                    input(type='text', placeholder='Họ tên của bạn')  
+                                p.form__group--first
+                                    label Xã/Phường *
+                                    input(type='text', placeholder='Họ tên của bạn')  
+                                p.form__group--last
+                                    label Địa chỉ *
+                                    input(type='text', placeholder='Họ tên của bạn')  
+                        div 
+                            div.order
+                                h3 Đơn hàng của bạn
+                                table 
+                                    thead 
+                                        tr 
+                                            th Sản phẩm
+                                            th Tạm tính
+                                    tbody 
+                                        tr 
+                                            td 
+                                                | Chuột Không Dây Dareu LM115G (Đen/Trắng/Hồng) 	
+                                                strong x 1			
+                                                dl 
+                                                    dt Màu Sắc: 
+                                                    dd 
+                                                        span Đen	
+                                            td
+                                                span 129.000₫
+                                    tfoot   
+                                        tr 
+                                            th Giá tiền sản phẩm	 
+                                            td 
+                                                span 129.000₫
+                                        tr 
+                                            td(colspan="2")
+                                                table 
+                                                    tbody 
+                                                        tr 
+                                                            th Phí vận chuyển
+                                                            td 
+                                                                div 
+                                                                    label Giao hàng có tính phí:
+                                                                    span 20.000₫
+                                        tr 
+                                            th Tổng chi phí
+                                            td 
+                                                span 149.000₫
+                                .pay-method
+                                    p Hình thức thanh toán
+                                    ul 
+                                        li 
+                                            input(type="radio")
+                                            label Trả tiền mặt khi nhận hàng (COD)
+                                        li 
+                                            input(type="radio")
+                                            label Chuyển khoản ngân hàng
+                                    button Đặt hàng 
+                                                        
