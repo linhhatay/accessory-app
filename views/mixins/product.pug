@@ -1,0 +1,26 @@
+mixin product(name)
+  .product-box
+      .product-box__badge
+        span -37%
+      .product-box__image
+        img(src='https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg' alt='')
+      .product-box__text
+        .product-box__text-name
+          = name
+        .product-box__text-info
+          .product-box__rating
+            i.fa-solid.fa-star
+            i.fa-solid.fa-star
+            i.fa-solid.fa-star
+            i.fa-solid.fa-star
+            i.fa-solid.fa-star
+          .product-box__price
+            span.product-box__price--sale
+              | 500.000
+              span.current-symbol &#x20AB;
+            span.product-box__price--current
+              | 300.000
+              span.current-symbol &#x20AB;
+          .product-box__status
+            i.fa-solid.fa-check
+            | Còn hàng

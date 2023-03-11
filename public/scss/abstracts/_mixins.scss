@@ -19,7 +19,7 @@ $desktop-screen: 1024px;
 
 // Mixin for desktop screens
 @mixin desktop {
-    @media only screen and (min-width: $desktop-screen) {
+    @media only screen and (min-width: $tablet-screen) {
         @content;
     }
 }

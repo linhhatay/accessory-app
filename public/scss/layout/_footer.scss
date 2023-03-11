@@ -33,7 +33,7 @@
 
 .footer-center {
     border-top: 1px solid #e5e5e5;
-    padding: 30px 0 0;
+    padding: 30px 0 0 !important;
 }
 
 .footer-center__wrapper {
@@ -50,14 +50,14 @@
 .footer-bottom {
     color: rgba(0, 0, 0, 0.5);
     padding: 10px 0 15px;
-}
 
-.footer-bottom__copyright {
-    max-width: 1170px;
-    padding: 0 15px 15px 15px;
-    margin: 0 auto;
+    div {
+        max-width: 1170px;
+        padding: 0 15px 15px 15px;
+        margin: 0 auto;
 
-    @include tablet {
-        text-align: center;
+        @include tablet {
+            text-align: center;
+        }
     }
 }

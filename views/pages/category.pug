@@ -1,0 +1,54 @@
+extends ../base
+include ../mixins/product.pug
+
+block content 
+    .container
+        .category__header
+            include ../components/breadCrumbs
+            .category__header-sort 
+                p Thứ tự sắp xếp
+                | 
+                form
+                    select.orderby(name='orderby', aria-label='Đơn hàng của cửa hàng')
+                        option(value='menu_order', selected='selected') Mặc định
+                        option(value='date') Xem nhiều
+                        option(value='popularity') Mới nhất
+                        option(value='price') Giá thấp
+                        option(value='price-desc') Giá cao
+
+
+        .category__content
+            .col.l-3.m-0.c-0
+                aside.sidebar 
+                    span.sidebar__title Danh mục sản phẩm
+                    |.
+                    .is-divider
+                    ul.categories
+                        li.category-item 
+                            a(href="") Dây Cáp
+                        li.category-item 
+                            a(href="") Cáp HDMI
+                        li.category-item 
+                            a(href="") Cáp VGA
+                        li.category-item 
+                            a(href="") Cáp DisplayPort
+                span.sidebar__title Lọc sản phẩm
+                .is-divider             
+            .col.l-9.m-12.c-12
+                .row
+                    .c-6.m-4.l-3.product-small
+                        +product('Chuột Dareu EM908 (Đen/Trắng/Hồng)')
+                    .c-6.m-4.l-3.product-small
+                        +product('Chuột Dareu EM908 (Đen/Trắng/Hồng)')
+                    .c-6.m-4.l-3.product-small
+                        +product('Chuột Dareu EM908 (Đen/Trắng/Hồng)')
+                    .c-6.m-4.l-3.product-small
+                        +product('Chuột Dareu EM908 (Đen/Trắng/Hồng)')
+                    .c-6.m-4.l-3.product-small
+                        +product('Chuột Dareu EM908 (Đen/Trắng/Hồng)')
+                    .c-6.m-4.l-3.product-small
+                        +product('Chuột Dareu EM908 (Đen/Trắng/Hồng)')
+                    .c-6.m-4.l-3.product-small
+                        +product('Chuột Dareu EM908 (Đen/Trắng/Hồng)')
+
+

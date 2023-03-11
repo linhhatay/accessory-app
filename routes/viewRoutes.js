@@ -17,4 +17,8 @@ router.get('/pay', function (req, res) {
     res.render('./pages/pay');
 });
 
+router.get('/category', function (req, res) {
+    res.render('./pages/category');
+});
+
 module.exports = router;

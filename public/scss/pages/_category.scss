@@ -1,0 +1,106 @@
+.category {
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 15px 0 15px;
+        min-height: 60px;
+    }
+
+    &__header-sort {
+        // display: flex;
+        // align-items: center;
+
+        p {
+            display: inline-block;
+            margin: 0 1em 0 auto;
+        }
+
+        form {
+            display: inline-block;
+
+            select {
+                vertical-align: middle;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background-image: url(../../img//arrow.svg);
+                background-position: right 0.45em top 50%;
+                background-repeat: no-repeat;
+                background-size: auto 20px;
+                font-size: 14px;
+                margin: 5px 0;
+                display: inline-block;
+                outline: 0;
+                background-color: #fff;
+                border: 1px solid #e5e5e5;
+                width: 100%;
+                padding: 5px 10px;
+                padding-right: 2.4em;
+                color: #333;
+                font: inherit;
+            }
+        }
+    }
+
+    &__content {
+        display: flex;
+        padding-top: 30px;
+
+        // & > div {
+        //     padding: 0 15px 30px;
+
+        //     &:first-child {
+        //         flex: 1 0 25%;
+
+        //         @include tablet {
+        //             display: none;
+        //         }
+        //     }
+
+        //     &:last-child {
+        //         flex: 1 0 75%;
+
+        //         @include tablet {
+        //             flex: 1;
+        //         }
+        //     }
+        // }
+    }
+}
+
+.sidebar {
+    margin-bottom: 20px;
+
+    &__title {
+        font-size: 1.35em;
+        line-height: 1.05;
+    }
+}
+
+.categories {
+    margin: 0;
+    padding: 0;
+    margin-top: -10px;
+}
+
+.category-item {
+    display: flex;
+
+    &:not(:first-child) {
+        border-top: 1px solid #ececec;
+    }
+
+    a {
+        display: inline-block;
+        padding: 6px 0;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        touch-action: manipulation;
+        background-color: transparent;
+    }
+}
+
+.product-small {
+    border: 1px solid #e8e8e8;
+}
