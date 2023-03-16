@@ -1,0 +1,26 @@
+extends ../base
+
+block content
+    .account
+        .account__header
+            .container
+                h1 Tài khoản
+        .account__container 
+            .container
+                .account-login
+                    h3 Đăng nhập 
+                    .account-login__form 
+                        .form-group 
+                            label Tên tài khoản hoặc địa chỉ email *
+                            input(type="text")
+                        .form-group 
+                            label Mật khẩu *
+                            input(type="text")
+                        .form-group 
+                            label 
+                                input(type="checkbox")
+                                | 
+                                span Ghi nhớ mật khẩu
+                            button Đăng nhập
+                        .form-group
+                            a Quên mật khẩu?

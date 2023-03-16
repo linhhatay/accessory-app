@@ -21,4 +21,8 @@ router.get('/category', function (req, res) {
     res.render('./pages/category');
 });
 
+router.get('/account', function (req, res) {
+    res.render('./pages/account');
+});
+
 module.exports = router;
