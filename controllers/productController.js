@@ -1,9 +1,31 @@
-const Product = require('../models/productModel');
+const Product = require('../models/Products/productModel');
+const Headphone = require('../models/Products/headphoneModel');
+const Keyboard = require('../models/Products/keyboardModel');
+const Mouse = require('../models/Products/mouseModel');
+const Mousepad = require('../models/Products/mousepadModel');
 const catchAsync = require('../utils/catchAsync');
-const AppError = require('../utils/appError');
+const factory = require('./handlerFactory');
 
 exports.createProduct = catchAsync(async (req, res, next) => {
-    const newProduct = await Product.create(req.body);
+    // const newProduct = await Product.create(req.body);
+    let newProduct;
+    const modelType = req.body.category;
+    switch (modelType) {
+        case 'Headphone':
+            newProduct = await Headphone.create(req.body);
+            break;
+        case 'Keyboard':
+            newProduct = await Keyboard.create(req.body);
+            break;
+        case 'Mouse':
+            newProduct = await Mouse.create(req.body);
+            break;
+        case 'Mousepad':
+            newProduct = await Mousepad.create(req.body);
+            break;
+        default:
+            throw new Error('Product type invalid !');
+    }
 
     res.status(201).json({
         status: 'success',
@@ -25,32 +47,8 @@ exports.getAllProduct = catchAsync(async (req, res, next) => {
     });
 });
 
-exports.getProduct = catchAsync(async (req, res, next) => {
-    const product = await Product.findById(req.params.id);
+exports.getProduct = factory.getOne(Product);
 
-    res.status(200).json({
-        status: 'success',
-        data: { product },
-    });
-});
+exports.updateProduct = factory.updateOne(Product);
 
-exports.updateProduct = catchAsync(async (req, res, next) => {
-    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-        runValidators: true,
-    });
-
-    res.status(200).json({
-        status: 'success',
-        data: { product },
-    });
-});
-
-exports.deleteProduct = catchAsync(async (req, res, next) => {
-    await Product.findByIdAndDelete(req.params.id);
-
-    res.status(204).json({
-        status: 'success',
-        data: null,
-    });
-});
+exports.deleteProduct = factory.deleteOne(Product);
