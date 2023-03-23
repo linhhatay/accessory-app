@@ -12,5 +12,8 @@ body
         .wrapper.container
             include partials/_section
             //- include partials/_section
-            //- include ./cartPopup
+        .overlay.hidden
+        include ./cartPopup
     include partials/_footer
+
+    script(src='./js/bundle.js')

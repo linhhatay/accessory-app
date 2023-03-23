@@ -93,6 +93,8 @@
         border-top: 21px solid transparent;
         background-color: #fff;
         touch-action: pan-y;
+        list-style: none;
+        z-index: 10;
 
         &:hover {
             display: block;
@@ -260,6 +262,7 @@
     &__cart {
         display: inline-block;
         position: relative;
+        cursor: pointer;
     }
 
     &__cart-link {
