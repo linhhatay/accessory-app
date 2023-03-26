@@ -34,10 +34,25 @@ header.header
             a(href="/") Phần mềm, Hệ Điều Hành
 
     .header__search
-      .header__search-form
-        input(type="search", placeholder="Tìm kiếm ...", autocomplete="off")
+      form.header__search-form
+        input.search__field(type="search", placeholder="Tìm kiếm...", autocomplete="off")
         button
           i.fa-solid.fa-magnifying-glass
+    .tooltip
+      ul 
+        //- li Nhập từ khóa về sản phẩm mà bạn cần tìm.
+        li 
+          a(href="#")
+            img(src="https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH469-Den-Hong.jpg", alt="")
+            .product-preview 
+              span Tai Nghe Dareu EH469 (Đen/Hồng) Dây USB, Giả Lập 7.1 
+              small 
+                span 409.000₫
+                i  - 
+                span 439.000₫
+
+
+
           
     .header__nav
       ul.header__nav-list

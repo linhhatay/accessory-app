@@ -26,11 +26,11 @@ mixin product(name)
             | Còn hàng
 
 
-section.section.featured-products
+section.section
   .section__title
     h3
       span Sản Phẩm Bán Chạy
-  .section__main
+  .section__main.featured-products
     button.btn-slider.btn--prev
       i.fa-solid.fa-chevron-left
     +product('Chuột Dareu EM908 (Đen/Trắng/Hồng)')
@@ -38,6 +38,7 @@ section.section.featured-products
     +product('Bàn Phím Cơ Dareu EK87 Đen/Trắng/Hồng (Blue/Red/Brown Switch)')
     +product('Chuột Không Dây Dareu LM115G (Đen/Trắng/Hồng)')
     +product('Bàn Phím Cơ Dareu EK810 Đen/Hồng (Blue/Red/Brown Switch)')
+    +product('Bàn Di Chuột Dareu ESP100 350x300x5mm')
     button.btn-slider.btn--next
       i.fa-solid.fa-chevron-right
 

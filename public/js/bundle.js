@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"views/View.js":[function(require,module,exports) {
+})({"views/overlayView.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -131,20 +131,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-var View = /*#__PURE__*/function () {
-  function View() {
-    _classCallCheck(this, View);
-    _defineProperty(this, "_data", void 0);
+var OverlayView = /*#__PURE__*/function () {
+  function OverlayView() {
+    _classCallCheck(this, OverlayView);
+    _defineProperty(this, "_overlayElement", void 0);
+    this._overlayElement = document.createElement('div');
+    this._overlayElement.classList.add('overlay');
   }
-  _createClass(View, [{
-    key: "_clear",
-    value: function _clear() {
-      this._parentElement.innerHTML = '';
+  _createClass(OverlayView, [{
+    key: "show",
+    value: function show() {
+      document.body.appendChild(this._overlayElement);
+    }
+  }, {
+    key: "hide",
+    value: function hide() {
+      document.body.removeChild(this._overlayElement);
     }
   }]);
-  return View;
+  return OverlayView;
 }();
-var _default = View;
+var _default = OverlayView;
 exports.default = _default;
 },{}],"views/modalView.js":[function(require,module,exports) {
 "use strict";
@@ -153,7 +160,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _View = _interopRequireDefault(require("./View"));
+var _overlayView = _interopRequireDefault(require("./overlayView"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -166,25 +173,30 @@ var ModalView = /*#__PURE__*/function () {
   function ModalView() {
     _classCallCheck(this, ModalView);
     _defineProperty(this, "_parentElement", document.querySelector('.cart-popup'));
-    _defineProperty(this, "_overlay", document.querySelector('.overlay'));
+    _defineProperty(this, "_overlay", new _overlayView.default());
     _defineProperty(this, "_btnOpenCart", document.querySelector('.header__cart'));
     _defineProperty(this, "_btnCloseCart", document.querySelector('.close-cart-popup'));
+    this._overlay._overlayElement.addEventListener('click', this._closeModal.bind(this));
     this._btnOpenCart.addEventListener('click', this._openModal.bind(this));
-    this._overlay.addEventListener('click', this._closeModal.bind(this));
     this._btnCloseCart.addEventListener('click', this._closeModal.bind(this));
-    document.addEventListener('keydown', this._closeModal.bind(this));
   }
   _createClass(ModalView, [{
     key: "_openModal",
     value: function _openModal() {
       this._parentElement.classList.remove('hidden');
-      this._overlay.classList.remove('hidden');
+      this._overlay.show();
+      document.addEventListener('keydown', this._handleKeyDown.bind(this));
     }
   }, {
     key: "_closeModal",
-    value: function _closeModal(e) {
+    value: function _closeModal() {
       this._parentElement.classList.add('hidden');
-      this._overlay.classList.add('hidden');
+      this._overlay.hide();
+      document.removeEventListener('keydown', this._handleKeyDown.bind(this));
+    }
+  }, {
+    key: "_handleKeyDown",
+    value: function _handleKeyDown(e) {
       if (e.key === 'Escape' && !this._parentElement.classList.contains('hidden')) {
         this._closeModal();
       }
@@ -194,10 +206,141 @@ var ModalView = /*#__PURE__*/function () {
 }();
 var _default = ModalView;
 exports.default = _default;
-},{"./View":"views/View.js"}],"index.js":[function(require,module,exports) {
+},{"./overlayView":"views/overlayView.js"}],"views/searchView.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+var SearchView = /*#__PURE__*/function () {
+  function SearchView() {
+    var _this = this;
+    _classCallCheck(this, SearchView);
+    _defineProperty(this, "_parentElement", document.querySelector('.header__search-form'));
+    _defineProperty(this, "_inputElement", document.querySelector('.search__field'));
+    _defineProperty(this, "_tooltip", document.querySelector('.tooltip'));
+    this._inputElement.addEventListener('focus', function () {
+      var rect = _this._parentElement.getBoundingClientRect();
+      _this._tooltip.style.display = 'block';
+      _this._tooltip.style.top = rect.top + rect.height;
+      _this._tooltip.style.left = rect.left;
+      _this._tooltip.style.width = _this._inputElement.offsetWidth;
+    });
+    this._inputElement.addEventListener('blur', function () {
+      _this._tooltip.style.display = 'none';
+    });
+  }
+  _createClass(SearchView, [{
+    key: "getQuery",
+    value: function getQuery() {
+      var query = this._inputElement.value;
+      this._clearInput();
+      return query;
+    }
+  }, {
+    key: "_clearInput",
+    value: function _clearInput() {
+      this._parentElement.querySelector('.search__field').value = '';
+    }
+  }, {
+    key: "addHandlerSearch",
+    value: function addHandlerSearch(handler) {
+      // this._parentElement.addEventListener('submit', function (e) {
+      //     e.preventDefault();
+      //     handler();
+      // });
+    }
+  }]);
+  return SearchView;
+}();
+var _default = new SearchView();
+exports.default = _default;
+},{}],"views/sliderView.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+var SliderView = /*#__PURE__*/function () {
+  function SliderView() {
+    _classCallCheck(this, SliderView);
+    _defineProperty(this, "_slides", document.querySelector('.featured-products'));
+    _defineProperty(this, "_slide", document.querySelectorAll('.product-box'));
+    _defineProperty(this, "_parentElement", document.querySelector('.featured-products'));
+    _defineProperty(this, "_btnPrev", document.querySelector('.btn--prev'));
+    _defineProperty(this, "_btnNext", document.querySelector('.btn--next'));
+    _defineProperty(this, "_slideMargin", parseInt(getComputedStyle(this._slide[0]).marginRight));
+    _defineProperty(this, "_slideTotalWidth", this._slide[0].clientWidth + this._slideMargin);
+    _defineProperty(this, "_visibleSlidesWidth", 1 * this._slideTotalWidth - this._slideMargin);
+    _defineProperty(this, "_currentSlide", 0);
+    _defineProperty(this, "_maxSlide", this._slides.length);
+    // this._goToSlide();
+    // this._slides.forEach((s, i) => (s.style.transform = `translateX(${0 * (i - slide)}%)`));
+    this._btnPrev.addEventListener('click', this._prevSlide.bind(this));
+    this._btnNext.addEventListener('click', this._nextSlide.bind(this));
+    this._slides.style.transform = "translateX(-".concat(this._slideTotalWidth * this._currentSlide, "px)");
+  }
+  _createClass(SliderView, [{
+    key: "_goToSlide",
+    value: function _goToSlide(slide) {
+      // this._slides.forEach((s, i) => (s.style.transform = `translateX(-${slide * this._slides[0].clientWidth}px)`));
+      // this._slides.style.transform = `translateX(-${this._slideTotalWidth * this._currentSlide}px)`;
+    }
+
+    // Next slide
+  }, {
+    key: "_nextSlide",
+    value: function _nextSlide() {
+      console.log(this);
+      this._currentSlide++;
+      if (this._currentSlide >= this._maxSlide) {
+        this._currentSlide = 0;
+      }
+      if (this._currentSlide === this._maxSlide - 3) {
+        this._currentSlide = -1;
+      }
+
+      // this._goToSlide(this._currentSlide);
+      this._slides.style.transform = "translateX(-".concat(this._visibleSlidesWidth * this._currentSlide, "px)");
+    }
+  }, {
+    key: "_prevSlide",
+    value: function _prevSlide() {
+      // if (this._currentSlide === 0) {
+      //     this._currentSlide = this._maxSlide - 1;
+      // } else {
+      //     this._currentSlide--;
+      // }
+      // this._goToSlide(this._currentSlide);
+    }
+  }]);
+  return SliderView;
+}();
+var _default = SliderView;
+exports.default = _default;
+},{}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _modalView = _interopRequireDefault(require("./views/modalView"));
+var _overlayView = _interopRequireDefault(require("./views/overlayView"));
+var _searchView = _interopRequireDefault(require("./views/searchView"));
+var _sliderView = _interopRequireDefault(require("./views/sliderView"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -207,12 +350,14 @@ function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key i
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var modal = new _modalView.default();
+var slider = new _sliderView.default();
 var App = /*#__PURE__*/function () {
   function App() {
     _classCallCheck(this, App);
     _defineProperty(this, "_menuElement", document.querySelector('.header__menu'));
     _defineProperty(this, "_menuList", document.querySelector('.header__menu-list'));
-    _defineProperty(this, "_overlay", document.querySelector('.overlay'));
+    _defineProperty(this, "_overlay", new _overlayView.default());
+    _searchView.default.addHandlerSearch();
     this._menuElement.addEventListener('mouseover', this._onOverlay.bind(this));
     this._menuList.addEventListener('mouseover', this._onOverlay.bind(this));
     this._menuElement.addEventListener('mouseout', this._offOverlay.bind(this));
@@ -220,20 +365,20 @@ var App = /*#__PURE__*/function () {
   _createClass(App, [{
     key: "_onOverlay",
     value: function _onOverlay() {
-      this._overlay.classList.remove('hidden');
-      this._overlay.style.top = '70';
+      this._overlay.show();
+      this._overlay._overlayElement.style.top = '70';
     }
   }, {
     key: "_offOverlay",
     value: function _offOverlay() {
-      this._overlay.classList.add('hidden');
-      this._overlay.style.top = '0';
+      this._overlay.hide();
+      this._overlay._overlayElement.style.top = '0';
     }
   }]);
   return App;
 }();
 var app = new App();
-},{"./views/modalView":"views/modalView.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./views/modalView":"views/modalView.js","./views/overlayView":"views/overlayView.js","./views/searchView":"views/searchView.js","./views/sliderView":"views/sliderView.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -258,7 +403,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51792" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52112" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
