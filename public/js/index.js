@@ -20,7 +20,7 @@ class App {
 
     _onOverlay() {
         this._overlay.show();
-        this._overlay._overlayElement.style.top = '70';
+        this._overlay._overlayElement.style.top = '80';
     }
 
     _offOverlay() {

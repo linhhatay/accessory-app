@@ -5,18 +5,18 @@ block content
         .pay__header 
             div 
                 nav
-                    a(href="") Giỏ Hàng 
+                    a(href="") Giỏ Hàng
                     span 
                         i.fa-solid.fa-chevron-right
-                    a(href="") Thanh Toán	 
+                    a(href="") Thanh Toán
                     span 
                         i.fa-solid.fa-chevron-right
                     a(href="") Đặt Hàng
         .pay__container
-            div.woocommerce
-                form.woocommerce__form
-                    div.woocommerce__form-box
-                        div 
+            div
+                form(class="mb-[1em]")
+                    div(class="grid grid-cols-[7fr_5fr] md:flex md:flex-col")
+                        div(class="pt-0 pb-[30px] px-[15px]")
                             div.customer-info
                                 h3 Thông tin thanh toán
                                 p 
@@ -40,7 +40,7 @@ block content
                                 p.form__group--last
                                     label Địa chỉ *
                                     input(type='text', placeholder='Họ tên của bạn')  
-                        div 
+                        div(class="pt-0 pb-[30px] px-[15px]")
                             div.order
                                 h3 Đơn hàng của bạn
                                 table 

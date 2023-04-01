@@ -8,22 +8,28 @@
         "start:prod": "SET NODE_ENV=production&& nodemon server.js",
         "watch": "node-sass --watch public/scss --output public/css",
         "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
-        "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
+        "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
+        "tailwind:css": "postcss --w public/tailwindcss/tailwind.css -o public/tailwindcss/style.css"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "autoprefixer": "^10.4.14",
         "bcryptjs": "^2.4.3",
         "dotenv": "^16.0.3",
         "express": "^4.18.2",
         "jsonwebtoken": "^9.0.0",
         "mongoose": "^6.8.3",
         "nodemailer": "^6.9.1",
+        "postcss": "^8.4.21",
+        "postcss-cli": "^10.1.0",
         "pug": "^3.0.2",
+        "tailwindcss": "^3.2.7",
         "validator": "^13.7.0"
     },
     "devDependencies": {
+        "@tailwindcss/line-clamp": "^0.4.2",
         "morgan": "^1.10.0",
         "node-sass": "^8.0.0",
         "nodemon": "^2.0.20",

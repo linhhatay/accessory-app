@@ -1,0 +1,14 @@
+mixin item(icon, title, description)
+    .service-item 
+        i(class=`${icon}`)
+        .policy-item-content 
+            div= title
+            div= description
+
+.services 
+    +item("fa-solid fa-rocket", "Giao hàng siêu tốc", "Nội thành HN nhận trong ngày")
+    +item("fa-solid fa-check-double","Sản phẩm chính hãng 100%", "Chất lượng đảm bảo")
+    +item("fa-solid fa-arrows-rotate", "Đổi trả nhanh chóng", "Miễn phí trong vòng 7 ngày")
+    +item("fa-solid fa-screwdriver-wrench", "Bảo hành toàn quốc", "Tại cửa hàng hoặc đại lý")
+    +item("fa-solid fa-comments", "Tư vấn trực tuyến 24/7", "Hỗ trợ tận tình, chu đáo")
+    

@@ -1,18 +1,18 @@
 
-header.header
-  .header__inner.container
-    .mobile-nav
-      i.fa-solid.fa-bars
-    .header__logo
-      a(href="/")
-        img(src="https://phukienabc.com/wp-content/uploads/2022/10/phukienabc.svg", alt="logo")
-      .header__menu
-        .header__menu-icon
-          i.fa-solid.fa-bars
+header(class="h-[80px] shadow-[1px_1px_10px_rgba(0,0,0,0.15)]")
+  div(class="flex h-full px-[15px] py-0 mx-auto md:justify-between md:items-center").container
+    div(class="hidden md:flex md:items-center md:justify-center md:px-[10px] md:py-0 md:w-[40px] md:h-[40px] md:rounded-full md:bg-gray-200")
+      i(class="fa-solid fa-bars text-[20px]")
+    div(class="flex items-center w-[200px] mr-[14px] md:w-auto md:mr-0")
+      a(class="max-w-[50px]" href="/")
+        img(class="w-full max-h-[80px] md:h-[36px]" src="https://phukienabc.com/wp-content/uploads/2022/10/phukienabc.svg", alt="logo")
+      .header__menu(class="relative flex items-center text-white leading-[38px] capitalize whitespace-nowrap cursor-pointer ml-5 px-2.5 py-0 rounded-[3px] md:hidden")
+        .header__menu-icon(class="flex items-center")
+          i(class="fa-solid fa-bars text-base mr-[6px]")
           span Sản Phẩm
         ul.header__menu-list
           li.header__menu-item
-            a(href="/") Bàn Phím, Chuột, Gaming Gear
+            a(class="relative text-[0.9em] leading-[38px] flex items-center min-w-[250px] px-[1em] py-0" href="/") Bàn Phím, Chuột, Gaming Gear
             ul.header__sub-menu
               li
                 a(href="/") Bàn phím
@@ -36,24 +36,21 @@ header.header
     .header__search
       form.header__search-form
         input.search__field(type="search", placeholder="Tìm kiếm...", autocomplete="off")
-        button
-          i.fa-solid.fa-magnifying-glass
+        button(class="w-[40px] h-[40px] leading-[40px] border-0 bg-d0011b cursor-pointer rounded-r-lg")
+          i(class="fa-solid fa-magnifying-glass text-white text-[1.3em]")
     .tooltip
-      ul 
+      ul(class="py-[10px] list-none")
         //- li Nhập từ khóa về sản phẩm mà bạn cần tìm.
-        li 
+        li(class="mb-[8px]")
           a(href="#")
-            img(src="https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH469-Den-Hong.jpg", alt="")
-            .product-preview 
-              span Tai Nghe Dareu EH469 (Đen/Hồng) Dây USB, Giả Lập 7.1 
-              small 
-                span 409.000₫
+            img(class="w-[50px] float-left" src="https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH469-Den-Hong.jpg", alt="")
+            div(class="text-[12px] ml-[55px] mt-[10px] pl-[5px]")
+              span(class="font-semibold text-[12px]") Tai Nghe Dareu EH469 (Đen/Hồng) Dây USB, Giả Lập 7.1 
+              small(class="font-[1em] block")
+                span(class="text-red-600 whitespace-nowrap font-semibold") 409.000₫
                 i  - 
-                span 439.000₫
-
-
-
-          
+                span(class="text-red-600 whitespace-nowrap font-semibold") 439.000₫
+  
     .header__nav
       ul.header__nav-list
         li.header__nav-item
@@ -62,16 +59,16 @@ header.header
               | Gọi mua hàng
               b 098.5588.012
             i.fa-solid.fa-phone-flip
-        li.header-divider.hide-on-tablet
+        li(class="relative h-[30px] align-middle mx-[7.5px] my-0 border-l-[rgba(0,0,0,0.1)] border-l border-solid md:hidden")
         li.header__nav-item
           a(href="tel:0858577555")
             span
               | Kinh Doanh 1
               b 0858.577.555
             i.fa-solid.fa-phone-flip
-        li.header-divider.hide-on-tablet
+        li(class="relative h-[30px] align-middle mx-[7.5px] my-0 border-l-[rgba(0,0,0,0.1)] border-l border-solid md:hidden")
         li.header__nav-item.header__cart
-          a.header__cart-link
-            span.hide-on-tablet Giỏ hàng 
-            i.fa-solid.fa-bag-shopping
+          a(class="flex items-center !pr-[55px] rounded-[3px]")
+            span(class="md:hidden") Giỏ hàng 
+            i(class="fa-solid fa-bag-shopping min-w-[1em]")
             span.cart-quantity 0

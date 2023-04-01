@@ -1,0 +1,9 @@
+mixin widget(title, items) 
+    div
+        div(class="widget mb-[20px] px-[15px] py-0")
+            span(class="text-[1.35em] leading-[1.05]")= title
+            .is-divider
+            ul 
+                each item in items
+                    li 
+                        a=item

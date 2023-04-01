@@ -1,39 +1,18 @@
+include ../mixins/policy.pug
+include ../mixins/widget.pug
+
 footer.footer
-  .footer-top
-    .footer-top__wrapper
-      .footer-top__wrapper-col
-        .policy
-          .policy__icon
-            i.fa-solid.fa-check
-          .policy__content
-            h5.uppercase Chất Lượng
-            p Sản phẩm chính hãng, bền và đẹp.
-      .footer-top__wrapper-col
-        .policy
-          .policy__icon
-            i.fa-solid.fa-face-smile
-          .policy__content
-            h5.uppercase Hài Lòng
-            p Trải nghiệm mua hàng tuyệt vời.
-      .footer-top__wrapper-col
-        .policy
-          .policy__icon
-            i.fa-solid.fa-retweet
-          .policy__content
-            h5.uppercase Dễ Dàng
-            p Đổi trả và bảo hành nhanh chóng.
-      .footer-top__wrapper-col
-        .policy
-          .policy__icon
-            i.fa-solid.fa-money-check-dollar
-          .policy__content
-            h5.uppercase An Toàn
-            p Thanh toán đơn giản và bảo mật.
-  .footer-center
-    .footer-center__wrapper
-      .footer-center__wrapper-col
-        .widget
-          span.widget__title Giới thiệu
+  div(class="border-t-neutral-200 pt-[10px] border-t border-solid")
+    div(class="max-w-[1170px] grid grid-cols-[repeat(4,1fr)] mx-auto my-0 md:grid-cols-[1fr]")
+      +policy("fa-solid fa-check", "Chất Lượng", "Sản phẩm chính hãng, bền và đẹp.")
+      +policy("fa-solid fa-face-smile", "Hài Lòng", "Trải nghiệm mua hàng tuyệt vời.")
+      +policy("fa-solid fa-retweet", "Dễ Dàng", "Đổi trả và bảo hành nhanh chóng.")
+      +policy("fa-solid fa-money-check-dollar", "An Toàn", "Thanh toán đơn giản và bảo mật.")
+  div(class="border-t-neutral-200 !pt-[30px] pb-0 px-0 border-t border-solid")
+    div(class="max-w-[1170px] grid grid-cols-[repeat(4,1fr)] mx-auto my-0 md:grid-cols-[1fr]")
+      div
+        div(class="widget mb-[20px] px-[15px] py-0")
+          span(class="text-[1.35em] leading-[1.05]") Giới thiệu
           .is-divider
           p
             a(href='') PHỤ KIỆN ABC
@@ -50,73 +29,10 @@ footer.footer
           p
             | Email: 
             strong phukienabc.official@gmail.com
-      .footer-center__wrapper-col
-        .widget
-          span.widget__title Thông tin, chính sách
-          .is-divider
-          ul 
-            li 
-              a Liên hệ, hợp tác
-            li 
-              a Hướng dẫn mua hàng
-            li 
-              a Chính sách bảo hành, đổi trả, hoàn tiền
-            li 
-              a Chính sách giao hàng
-            li 
-              a Chính sách thanh toán
-            li 
-              a Chính sách bảo mật thông tin khách hàng
-      .footer-center__wrapper-col
-        .widget
-          span.widget__title Danh mục sản phẩm
-          .is-divider
-          ul 
-            li 
-              a Dây Cáp
-            li 
-              a Bộ Chia Tín Hiệu
-            li 
-              a Bộ Chuyển Tín Hiệu
-            li 
-              a Linh Kiện Laptop
-            li 
-              a Phụ Kiện Laptop
-            li 
-              a Phụ Kiện Điện Thoại
-            li 
-              a Phụ Kiện Lưu Trữ
-            li 
-              a Thiết Bị Nghe Nhìn
-            li 
-              a Thiết Bị Mạng
-            li 
-              a Thiết Bị Lưu Trữ
-            li 
-              a Bàn Phím, Chuột, Gaming Gear
-            li 
-              a Phần Mềm, Hệ Điều Hành
-            li 
-              a Thiết Bị Hội Nghị
-      .footer-center__wrapper-col
-        .widget
-          span.widget__title Sản phẩm hot
-          .is-divider
-          ul
-            li 
-              a Chuột Dareu EM908 (Đen/Trắng/Hồng)
-            li 
-              a Bàn Phím Cơ Dareu EK87 Đen/Trắng/Hồng (Blue/Red/Brown Switch)
-            li 
-              a Chuột Không Dây Dareu LM115G (Đen/Trắng/Hồng)
-            li 
-              a Tai Nghe Dareu EH416 Dây USB, Giả Lập 7.1
-            li 
-              a Bàn Phím Cơ Dareu EK810 Đen/Hồng (Blue/Red/Brown Switch)
-            li 
-              a Chuột Không Dây Dareu EM901 (Đen/Trắng/Hồng)
-            li 
-              a Chuột Dareu LM130 Multi-LED
-  .footer-bottom
-    div
-      | Copyright 2019 &copy; PH&#x1EE4; KI&#x1EC6;N ABC
+      +widget("Thông tin, chính sách", ["Liên hệ, hợp tác", "Hướng dẫn mua hàng", "Chính sách bảo hành, đổi trả, hoàn tiền", "Chính sách giao hàng", "Chính sách thanh toán", "Chính sách bảo mật thông tin khách hàng"])
+      +widget("Danh mục sản phẩm", ["Dây Cáp", "Bộ Chia Tín Hiệu", "Bộ Chuyển Tín Hiệu", "Linh Kiện Laptop", "Phụ Kiện Laptop", "Bàn Phím, Chuột, Gaming Gear"])
+      +widget("Sản phẩm hot", ["Chuột Dareu EM908 (Đen/Trắng/Hồng)", "Bàn Phím Cơ Dareu EK87 Đen/Trắng/Hồng (Blue/Red/Brown Switch)", "Chuột Không Dây Dareu LM115G (Đen/Trắng/Hồng)", "Tai Nghe Dareu EH416 Dây USB, Giả Lập 7.1", "Bàn Phím Cơ Dareu EK810 Đen/Hồng (Blue/Red/Brown Switch)", "Chuột Không Dây Dareu EM901 (Đen/Trắng/Hồng)"])
+      
+  div(class="text-[rgba(0,0,0,0.5)] pt-[15px] pb-[15px] px-0")
+    div(class="max-w-[1170px] mx-auto my-0 pt-0 pb-[15px] px-[15px] md:text-center")
+      | Copyright 2019 &copy; PHỤ KIỆN ABC

@@ -2,17 +2,17 @@ extends ../base
 
 block content 
     .container
-        .featured-title  
+        div(class="min-h-[60px] max-w-[1170px] pt-[20px] pb-[10px] px-[15px]")
             div
                 h1.heading-primary Tai Nghe Dareu EH416 Dây USB, Giả Lập 7.1
                 include ../components/breadCrumbs
-        .title-divider
+        div(class="h-px max-w-[calc(100%_-_30px)] m-auto bg-gray-300")
 
-        .feature-box
-            .feature-box__top
-                .product-gallery
-                    img(src="https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416.jpg") 
-                    .product-thumbnails
+        div
+            div(class="grid grid-cols-[5fr_4fr_3fr] pt-[20px]")
+                div(class="px-[15px] py-0")
+                    img(class="w-full mb-[15px]" src="https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416.jpg") 
+                    div(class="flex")
                         a
                             img(src='https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg')
                         a
@@ -49,9 +49,9 @@ block content
                         .cta-button
                             button.product-add-to-cart Thêm vào giỏ hàng
                             a.product-buy-now Mua Ngay
-                .customer
-                    aside 
-                        include ../components/policys
+                div(class="pl-[10px] pt-0 pb-[30px] px-[15px]")
+                    aside(class="mb-[20px]")
+                        include ../components/services
 
             .feature-box__bottom
 

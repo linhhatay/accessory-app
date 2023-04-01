@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: inherit; }
+  box-sizing: border-box; }
 
 html {
   font-size: 62.5%; }
@@ -49,9 +49,6 @@ a {
   background-color: #888;
   width: 100%;
   max-width: 60px; }
-
-.hidden {
-  display: none; }
 
 .overlay {
   opacity: 0.6;
@@ -368,8 +365,8 @@ a {
       line-height: 1.3;
       height: 2.5em;
       overflow: hidden;
-      text-overflow: ellipsis;
       display: -webkit-box;
+      text-overflow: ellipsis;
       -webkit-line-clamp: 2;
       line-clamp: 2;
       -webkit-box-orient: vertical; }
@@ -1182,16 +1179,16 @@ a {
   .customer aside {
     margin-bottom: 20px; }
 
-.policys {
+.services {
   border: 1px solid #ddd;
   border-radius: 3px; }
 
-.policy-item {
+.service-item {
   display: flex;
   align-items: center; }
-  .policy-item:not(:last-child) {
+  .service-item:not(:last-child) {
     border-bottom: 1px solid #ddd; }
-  .policy-item i {
+  .service-item i {
     color: #d0011b;
     font-size: 32px;
     line-height: 54px;
@@ -1290,7 +1287,9 @@ a {
       color: #ccc; }
     .pay__header nav span {
       margin: 0 0.5em;
-      text-align: right; }
+      text-align: right;
+      opacity: 0.35;
+      font-weight: 300; }
 
 .pay__container {
   padding: 30px 15px;

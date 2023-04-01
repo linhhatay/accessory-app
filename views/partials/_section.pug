@@ -1,44 +1,45 @@
-mixin product(name)
-  .product-box
-      .product-box__badge
-        span -37%
-      .product-box__image
-        img(src='https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg' alt='')
-      .product-box__text
-        .product-box__text-name
+mixin product(name, image)
+  div(class="slide transition-transform duration-[0.4s] relative flex-[1_0_20%] p-[10px] md:flex-[1_0_calc(100%_/_3)] sm:flex-[1_0_calc(100%_/_2)]")
+      div(class="inline-block absolute left-2.5 top-5")
+        span(class="block min-w-[36px] h-[36px] leading-[36px] text-center text-white text-[0.9em] rounded-[50%] bg-orange-500") -37%
+      div
+        img(class="w-full object-cover before:content-[''] before:block before:pb-[100%]" src=`${image}` alt='')
+      div(class="text-[1.15em] px-0 py-[0.8em]")
+        div(class="mt-[0.3em] mb-[1em] text-[0.9em] leading-[1.3] h-[2.5em] overflow-ellipsis line-clamp-2")
           = name
-        .product-box__text-info
+        div(class="text-[1.4rem]")
           .product-box__rating
             i.fa-solid.fa-star
             i.fa-solid.fa-star
             i.fa-solid.fa-star
             i.fa-solid.fa-star
             i.fa-solid.fa-star
-          .product-box__price
-            span.product-box__price--sale
+          div(class="text-[1.2em] leading-none")
+            span(class="opacity-60 text-[15px] font-normal text-[#666] line-through mr-[0.3em]")
               | 500.000
               span.current-symbol &#x20AB;
-            span.product-box__price--current
+            span(class="text-[#d0011b] text-[16px]")
               | 300.000
               span.current-symbol &#x20AB;
-          .product-box__status
-            i.fa-solid.fa-check
+          div(class="text-[#009627] text-[0.9em] mt-[0.5em]")
+            i(class="fa-solid fa-check mr-[3px]")
             | Còn hàng
 
 
-section.section
-  .section__title
-    h3
-      span Sản Phẩm Bán Chạy
-  .section__main.featured-products
-    button.btn-slider.btn--prev
-      i.fa-solid.fa-chevron-left
-    +product('Chuột Dareu EM908 (Đen/Trắng/Hồng)')
-    +product('Tai Nghe Dareu EH416 Dây USB, Giả Lập 7.1')
-    +product('Bàn Phím Cơ Dareu EK87 Đen/Trắng/Hồng (Blue/Red/Brown Switch)')
-    +product('Chuột Không Dây Dareu LM115G (Đen/Trắng/Hồng)')
-    +product('Bàn Phím Cơ Dareu EK810 Đen/Hồng (Blue/Red/Brown Switch)')
-    +product('Bàn Di Chuột Dareu ESP100 350x300x5mm')
-    button.btn-slider.btn--next
-      i.fa-solid.fa-chevron-right
+section(class="relative pt-0 pb-[30px] px-[15px]")
+  div(class="mb-[21px]")
+    h3(class="inline-block w-full font-normal text-[17.5px] capitalize mb-2 pb-[7.5px] border-b-2 border-b-[#ccc] border-solid")
+      span(class="-mb-[2px] pb-[11.5px] border-b-2 border-b-[#d0011b] border-solid") Sản Phẩm Bán Chạy
+  button.btn-slider.btn--prev
+    i.fa-solid.fa-chevron-left
+  button.btn-slider.btn--next
+    i.fa-solid.fa-chevron-right
+  div(class="featured-products slides flex flex-nowrap overflow-hidden mx-[10px] my-0" item-display-d="5" item-display-t="3" item-display-m="2")
+    +product('Chuột Dareu EM908 (Đen/Trắng/Hồng)', 'https://phukienabc.com/wp-content/uploads/2022/10/Chuot-DAREU-EM908-Den-Trang-Hong-208x208.jpg')
+    +product('Tai Nghe Dareu EH416 Dây USB, Giả Lập 7.1', 'https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg')
+    +product('Bàn Phím Cơ Dareu EK87 Đen/Trắng/Hồng (Blue/Red/Brown Switch)', 'https://phukienabc.com/wp-content/uploads/2022/10/Ban-Phim-Co-DAREU-EK87-Den-Trang-Hong-Blue-Red-Brown-Switch-208x208.jpg')
+    +product('Chuột Không Dây Dareu LM115G (Đen/Trắng/Hồng)', 'https://phukienabc.com/wp-content/uploads/2022/10/Chuot-Khong-Day-DAREU-LM115G-Den-Trang-Hong-208x208.jpg')
+    +product('Bàn Phím Cơ Dareu EK810 Đen/Hồng (Blue/Red/Brown Switch)', 'https://phukienabc.com/wp-content/uploads/2022/10/Ban-Phim-Co-Dareu-EK810-Den-Hong-Blue-Red-Brown-Switch-208x208.jpg')
+    +product('Bàn Di Chuột Dareu ESP100 350x300x5mm', 'https://phukienabc.com/wp-content/uploads/2022/10/Ban-Di-Chuot-DAREU-ESP100-208x208.jpg')
+   
 

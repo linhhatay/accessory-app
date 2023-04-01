@@ -1,0 +1,8 @@
+mixin policy(icon, title, description) 
+    div(class="mb-[20px] px-[15px] py-0 md:mt-[20px] md:last-child:mb-[30px] md:mb-[0] md:last:mb-[30px]")
+        div(class="md:flex md:items-center")
+          div(class="flex items-center justify-center w-[72px] h-[72px] border text-[#d0011b] text-[32px] leading-[72px] text-center mx-auto my-[20px] rounded-full border-solid border-[#d0011b] md:w-[48px] md:h-[48px] md:text-[20px] md:leading-[48px] md:ml-0 md:mr-[10px] md:my-0")
+            i(class=`${icon}`)
+          div(class="text-center md:text-left")
+            h5(class="leading-[1.2] font-normal text-[#333] text-[1em] mb-[0.5em] font-sans")= title
+            p(class="text-[#333] mb-[10px] md:mb-0")= description

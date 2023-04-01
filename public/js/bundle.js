@@ -280,54 +280,43 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 var SliderView = /*#__PURE__*/function () {
   function SliderView() {
     _classCallCheck(this, SliderView);
-    _defineProperty(this, "_slides", document.querySelector('.featured-products'));
-    _defineProperty(this, "_slide", document.querySelectorAll('.product-box'));
-    _defineProperty(this, "_parentElement", document.querySelector('.featured-products'));
+    _defineProperty(this, "_slides", document.querySelectorAll('.slide'));
     _defineProperty(this, "_btnPrev", document.querySelector('.btn--prev'));
     _defineProperty(this, "_btnNext", document.querySelector('.btn--next'));
-    _defineProperty(this, "_slideMargin", parseInt(getComputedStyle(this._slide[0]).marginRight));
-    _defineProperty(this, "_slideTotalWidth", this._slide[0].clientWidth + this._slideMargin);
-    _defineProperty(this, "_visibleSlidesWidth", 1 * this._slideTotalWidth - this._slideMargin);
     _defineProperty(this, "_currentSlide", 0);
+    _defineProperty(this, "_slideDisplay", 5);
     _defineProperty(this, "_maxSlide", this._slides.length);
-    // this._goToSlide();
-    // this._slides.forEach((s, i) => (s.style.transform = `translateX(${0 * (i - slide)}%)`));
+    this._goToSlide(0);
     this._btnPrev.addEventListener('click', this._prevSlide.bind(this));
     this._btnNext.addEventListener('click', this._nextSlide.bind(this));
-    this._slides.style.transform = "translateX(-".concat(this._slideTotalWidth * this._currentSlide, "px)");
   }
   _createClass(SliderView, [{
     key: "_goToSlide",
     value: function _goToSlide(slide) {
-      // this._slides.forEach((s, i) => (s.style.transform = `translateX(-${slide * this._slides[0].clientWidth}px)`));
-      // this._slides.style.transform = `translateX(-${this._slideTotalWidth * this._currentSlide}px)`;
+      this._slides.forEach(function (s, i) {
+        return s.style.transform = "translateX(-".concat(100 * slide, "%)");
+      });
     }
-
-    // Next slide
   }, {
     key: "_nextSlide",
     value: function _nextSlide() {
-      console.log(this);
-      this._currentSlide++;
-      if (this._currentSlide >= this._maxSlide) {
+      if (this._currentSlide === this._maxSlide - this._slideDisplay) {
         this._currentSlide = 0;
+      } else {
+        this._currentSlide++;
       }
-      if (this._currentSlide === this._maxSlide - 3) {
-        this._currentSlide = -1;
-      }
-
-      // this._goToSlide(this._currentSlide);
-      this._slides.style.transform = "translateX(-".concat(this._visibleSlidesWidth * this._currentSlide, "px)");
+      this._goToSlide(this._currentSlide);
     }
   }, {
     key: "_prevSlide",
     value: function _prevSlide() {
-      // if (this._currentSlide === 0) {
-      //     this._currentSlide = this._maxSlide - 1;
-      // } else {
-      //     this._currentSlide--;
-      // }
-      // this._goToSlide(this._currentSlide);
+      console.log(this._currentSlide);
+      if (this._currentSlide === 0) {
+        this._currentSlide = this._maxSlide - this._slideDisplay;
+      } else {
+        this._currentSlide--;
+      }
+      this._goToSlide(this._currentSlide);
     }
   }]);
   return SliderView;
@@ -366,7 +355,7 @@ var App = /*#__PURE__*/function () {
     key: "_onOverlay",
     value: function _onOverlay() {
       this._overlay.show();
-      this._overlay._overlayElement.style.top = '70';
+      this._overlay._overlayElement.style.top = '80';
     }
   }, {
     key: "_offOverlay",
@@ -403,7 +392,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52112" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59328" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -2,20 +2,20 @@ extends base
 
 block content 
     .container
-        .cart-checkout-title
-            .cart-checkout-title__container 
+        div
+            div(class="min-h-[60px] pt-[20px] pb-0 px-[15px]")
                 div 
-                    nav
-                        a.current-page Giỏ Hàng 
-                        span
+                    nav(class="text-[1.5em] font-normal text-[#222] tracking-[0] leading-[1.75] text-center px-0 py-[15px] font-sans")
+                        a(class="current-page text-[#111]") Giỏ Hàng 
+                        span(class="opacity-[0.35] font-light mx-[0.3em] my-0")
                             i.fa-solid.fa-chevron-right
-                        a Thanh Toán 
-                        span
+                        a(class="text-[#ccc]") Thanh Toán 
+                        span(class="opacity-[0.35] font-light mx-[0.3em] my-0")
                             i.fa-solid.fa-chevron-right
-                        a Đặt Hàng 
-        .cart
+                        a(class="text-[#ccc]") Đặt Hàng 
+        div(class="px-[15px] py-[30px]")
             div
-                .cart__inner
+                div(class="ml-[-30px] mr-[-30px] max-w-[1200px] grid grid-cols-[7fr_5fr] mb-0")
                     .cart__content
                         form
                             table
