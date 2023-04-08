@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const Product = require('../models/Products/productModel');
 
-router.get('/', function (req, res) {
-    res.render('base');
+router.get('/', async function (req, res) {
+    const products = await Product.find();
+
+    res.render('base', {
+        products,
+    });
 });
 
 router.get('/cart', function (req, res) {
@@ -23,6 +28,14 @@ router.get('/category', function (req, res) {
 
 router.get('/account', function (req, res) {
     res.render('./pages/account');
+});
+
+router.get('/admin', function (req, res) {
+    res.render('./pages/admin');
+});
+
+router.get('/admin/create', function (req, res) {
+    res.render('./pages/admin/create');
 });
 
 module.exports = router;

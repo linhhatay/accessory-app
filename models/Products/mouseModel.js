@@ -4,25 +4,25 @@ const Product = require('./productModel');
 const mouseSchema = new mongoose.Schema({
     color: [
         {
-            type: String,
-            enum: ['Đen', 'Trắng', 'Hồng'],
+            name: {
+                type: String,
+                enum: ['Đen', 'Trắng', 'Hồng'],
+            },
+            price: Number,
+            quantity: Number,
         },
     ],
     sensor: {
         type: String,
-        required: true,
     },
     dpi: {
         type: String,
-        required: true,
     },
     tracking: {
         type: String,
-        required: true,
     },
     pollingRate: {
         type: String,
-        required: true,
     },
     switch: {
         type: String,
@@ -30,17 +30,15 @@ const mouseSchema = new mongoose.Schema({
     },
     size: {
         type: String,
-        required: true,
     },
     cable: {
         type: String,
-        required: true,
     },
     weight: {
         type: String,
-        required: true,
     },
+    product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
 });
 
-const Mouse = Product.discriminator('Mouse', mouseSchema);
+const Mouse = mongoose.model('Mouse', mouseSchema);
 module.exports = Mouse;

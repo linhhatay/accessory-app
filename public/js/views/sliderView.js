@@ -26,7 +26,6 @@ class SliderView {
     }
 
     _prevSlide() {
-        console.log(this._currentSlide);
         if (this._currentSlide === 0) {
             this._currentSlide = this._maxSlide - this._slideDisplay;
         } else {

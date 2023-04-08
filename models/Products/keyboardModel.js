@@ -40,7 +40,8 @@ const keyboardSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
 });
 
-const Keyboard = Product.discriminator('Keyboard', keyboardSchema);
+const Keyboard = mongoose.model('Keyboard', keyboardSchema);
 module.exports = Keyboard;

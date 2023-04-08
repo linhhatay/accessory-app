@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Product = require('./productModel');
 
 const mousepadSchema = new mongoose.Schema({
     dimensions: [
@@ -9,11 +8,16 @@ const mousepadSchema = new mongoose.Schema({
     ],
     pattern: [
         {
-            type: String,
-            enum: ['Black', 'Pink', 'Swallow', 'Dream'],
+            type: {
+                type: String,
+                enum: ['Black', 'Pink', 'Swallow', 'Dream'],
+            },
+            price: Number,
+            quantity: Number,
         },
     ],
+    product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
 });
 
-const Mousepad = Product.discriminator('Mousepad', mousepadSchema);
+const Mousepad = mongoose.model('Mousepad', mousepadSchema);
 module.exports = Mousepad;

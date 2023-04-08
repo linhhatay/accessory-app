@@ -1,0 +1,110 @@
+//- doctype html
+//- html(lang="en")
+//-     head
+//-         meta(charset="UTF-8")
+//-         meta(http-equiv="X-UA-Compatible", content="IE=edge")
+//-         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+//-         link(rel='stylesheet' href='/tailwindcss/style.css')
+//-         link(rel='stylesheet' href='/css/style.css')
+//-         title Admin
+
+//-     style.
+//-         body {
+//-             padding: 0;
+//-             margin: 0px;
+//-             box-sizing: border-box;
+//-             color: rgba(0, 0, 0, 0.87);
+//-             font-weight: 400;
+//-             font-family: "DM Sans", sans-serif;
+//-             font-size: 1rem;
+//-             line-height: 1.5;
+//-             background-color: rgb(250, 251, 251);
+//-         }
+
+//-     body 
+//-         div 
+//-             header(class="transition-shadow duration-300 ease-in-out delay-[0ms] flex flex-col w-full box-border shrink-0 fixed z-[1100] text-white bg-white shadow-[rgba(90,114,123,0.11)_0px_7px_30px_0px] pl-0 left-auto right-0 top-0")
+//-                 div(class="min-h-[70px] px-[30px] py-0 relative flex items-center text-[rgb(148,157,178)]")
+//-                     div(class="w-[250px] text-[rgb(148,157,178)]")
+//-                         a(href="/")
+//-                             img(src="/img/logo-admin.svg" alt="logo")
+//-                     div(class="flex flex-[1] items-center justify-end")
+//-                         button(class="inline-flex items-center justify-center relative box-border bg-transparent cursor-pointer select-none align-middle appearance-none no-underline text-center flex-[0_0_auto] overflow-visible text-inherit text-[1.75rem] m-0 p-3 rounded-[50%] border-0")
+//-                             span
+//-                                 svg.feather.feather-bell(width='20', height='20', viewBox='0 0 24 24', fill='none', stroke='currentColor', stroke-width='2', stroke-linecap='round', stroke-linejoin='round')
+//-                                     path(d='M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0')
+//-                         div(class="w-px bg-[rgba(0,0,0,0.1)] h-[25px] mx-[8px]")
+//-                         button(class="inline-flex items-center justify-center relative box-border bg-transparent cursor-pointer select-none align-middle appearance-none no-underline font-normal leading-[1.75] min-w-[64px] m-0 px-2 py-1.5 rounded-[5px] border-0")
+//-                             div(class="flex items-center")
+//-                                 div(class="relative flex items-center justify-center shrink-0 text-xl leading-none overflow-hidden select-none w-[30px] h-[30px] rounded-[50%]")
+//-                                     img(class="w-full h-full text-center object-cover text-transparent" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gAfQ29tcHJlc3NlZCBieSBqcGVnLXJlY29tcHJlc3P/2wCEAAQEBAQEBAQEBAQGBgUGBggHBwcHCAwJCQkJCQwTDA4MDA4MExEUEA8QFBEeFxUVFx4iHRsdIiolJSo0MjRERFwBBAQEBAQEBAQEBAYGBQYGCAcHBwcIDAkJCQkJDBMMDgwMDgwTERQQDxAUER4XFRUXHiIdGx0iKiUlKjQyNEREXP/CABEIAGQAZAMBIgACEQEDEQH/xAAdAAABBAMBAQAAAAAAAAAAAAAAAQIFBgMHCAQJ/9oACAEBAAAAAOJwAAAAAAABBT0dLzfNNcQRWjvR9BOiY7TPLumYlEB2/wDvePruoKxV+aRoO73ucbNR+sYDkpEF6n3jqus7rteuZ757MRH2u6SWzds8k7o93HcUAzoOgTUnddaVSqNGma8UsHsMeMaZsqo0VuJoxXO9DsariwOTG5W+xzUTA1yf/8QAGQEBAAMBAQAAAAAAAAAAAAAAAAEDBAIF/9oACAECEAAAALgCrPfcZ8OPT7KPKz0avaln657sEEzCCX//xAAZAQACAwEAAAAAAAAAAAAAAAAAAgEEBQP/2gAIAQMQAAAAqgAMdLVeudO2hqZ+HD6ty1n4at2GTjDMQQjjRBH/xAA4EAACAQMDAgIJAgMJAQAAAAABAgMEBREABhIhMSJBBxATFCAyUWGBCBZCUnEVIyQlM0BDYpHB/9oACAEBAAE/AP8AdZ1n10tJU11TBR0VPJPUzOEiiiUu7sewUDW0/wBNF8uVNDXbpuAt6uOQpIAJJwP+7HoDrcP6f7Ba6Caphrp4liXk088vQAavu3aizz4CzNA3yPJEYiw8jg9cHRBUkMCD9D68/DSUtRXVMNJSxmSaVgqKO5J16HPRRb9oUEVxq4UnvdQmZZ2H+mh/40+i6jhVIy0gwoH5Oqq0w12ZaqNSg+VW7dOx1v3blrrYTQ0dPC9ZI3ilZA4iHm+DkE+Sg6o9jRXyvvG2Lq/+bUTOIK1ejSA+NS/1BGr3Za7b9yqbXcYTHUQtgg+Y8j8foO2jNdr1DdJIx7nAeUjH+NuyRD7D53/A1DXUltiCvIowO7HA028IHmdIKeacrnxceKDH9dVe4r/dxUewKU9IuQgj8U0hH3PRV1Yn3bdt0yUc1RdaGCNWlmWogianfiwHANjryz5atNZK3pau8NdBFEYlEDhDlgFyEd/uQNfqEtUUlRaNxwKAzD3Kqx/Og5I35Hx+hanZthWuenpjHNKvFnI8oT7MN+cau9bFRM1ROWnclI4UB5SzzueKRxj7nW7a6rgoINtWepp4LlU4SsmSVTJFkBn4L38++rXF/ZsEMKE8I41UZ69ANSbpgFdWCN4ozSDDiXK8mI6dQOi/fSy/ujeNNfaegp4JY4pKaskppfaCZEbCMxH5A16Z4H/b0vJyMSLLxP8AGo8P/qkj4VUsyqoySQAPudbC2HthoIzuCzRV0x45Lo8UQb6B8oG1dt3WLatoSmJp6WlgRYoKOlGAcdFTp3/oNV+9RZ4P3peoZXu1THItkoQBxhj7PVvnoCflQ69FddW7ordx3eqYe+viWJzluPMnpk9TqHcnsyILlC0DgYZu6E6Suo5qUrSVoVzH0ZGww1sW8m3bg3FaK6NJ456tpRMAuDlQcjiOme5GvS1Y7ffNi1/uytK0RWRfZDlInXuAO4GnQxu0bDqpIOj60YK6OQDxYHB7HB0m9twR1M08dynUPnpy5cc/TOtmUs91qjetwVUtRFAhkLSPnhH9FB/ifsPprfVfW3WnFXNDxqbjxhpIAOIipYhxUAHsoHX8nXoapKSjtlAqyAVoeanrIT0kjcOWCuNblWkhpZUFMZahxhFQeIk6mTcN5ut1ShuNQkdMZjGF+Q+74En4ySAdbJ23LUUNJdKGdpWeAMU5EP7RiQwLeYz1Otx3m97OttPXXoRoDLLG2G8LKxATIHXI6nV8r4bpd7jcKeD2MU87OieYXyzjzPc/CFZjga2XIk9BRp7pH/ezpS0lJy5e8VXQuznyhhBDP+BreG6Za/eE10t8yvTUL+70fIZWSOLKlyBjPtCSx1Tbi21XyQzStNb6oK8acuYCsSDGRUQEOkSDw4IYjVdfLHIkC1O86yriZEVy09bMVYheamImPKr1wS3i1tLdtjodvSXM0KQUk9fFY0hldDP7vNyknIKheiqQEHkdfum6bDucsu0t2pVU7yyf4UwyDgv8s8coAVh9FOtybw3Hu2p95vlxaTChVhj8EKgHPyjTLj4VGCDnUG7norPBQW2kEFWkE9M1UX5ERTnL8B5M+eJP01jX/wA0NGWTikftG4A8guegYjBIH1ONMxZi7ElmOSx7k6PRTpuo+AeWh8H09ZzjGh20e+s6z9xoHRPh0JhkBRnQOdY++j09cjEKSNBgqjR6gH1r56btqDu2l0fVnWTg6kY8W1GoKgnRJ5H7aOv/xAAiEQEAAgIBBAIDAAAAAAAAAAABAgMAERIEICExEFETMDL/2gAIAQIBAT8A/QoG3OXL06MsnOjc2W4/TlV0bTx4ezqJsYgHtyXUSjFlvUTGxs1KyUl+s6a/jYRB4qG/l9OsthdXFlbb4yYPT/z7mGQjZFltNB5conMAIcvOCoKadfN9RZxE3pz8UOJHXrGiCJka4R08TfY9xn33f//EACMRAAICAQQCAgMAAAAAAAAAAAECAxEABBAhMRIgEzJRgcH/2gAIAQMBAT8A96yrwIF7GRRpqCIwlN+Rk+naFqPI9NOgZzZqhkelV2VACS36AGJD4eSQRqRXdc5rdMSGZjTgEkbVtC8EjhIoucibx1H26Qkj+Y8kZCFQbJ4GapVZnLPRxgLIBsZxtDI0RYq1WM+V/ItfeDUPYOGR2seRrCM49j1sMPoetv/Z" alt="avatar")
+//-                                 div(class="flex items-center cursor-pointer")
+//-                                     h5(class="text-[16px] leading-[1.5] text-[rgb(119,126,137)] font-normal ml-[8px]") Hi,
+//-                                     h5(class="text-[16px] leading-[1.5] font-bold ml-[8px]") Linh
+//-                                     svg.feather.feather-chevron-down(width='20', height='20', viewBox='0 0 24 24', fill='none', stroke='currentColor', stroke-width='2', stroke-linecap='round', stroke-linejoin='round')
+//-                                           g
+//-                                             polyline(points='6 9 12 15 18 9')
+//-             div(class="")
+//-                 aside(class="flex flex-col flex-[1_0_auto] z-[1200] fixed w-[265px] rounded-[9px] border-0 left-[30px] top-[100px] bg-white")
+//-                     div(class="p-[16px]")
+//-                         ul(class="relative m-0 px-0 py-[8px] list-none")
+//-                             li 
+//-                                 h6(class="text-sm leading-[1.57] font-medium opacity-40 mt-0 mb-4 mx-0") DASHBOARDS
+//-                             li(class="flex items-center justify-start px-[16px] py-[8px] rounded-[9px]")
+//-                                 div(class="inline-flex min-w-[40px]")
+//-                                     svg.feather.feather-users(width='20', height='20', viewBox='0 0 24 24', fill='none', stroke='currentColor', stroke-width='2', stroke-linecap='round', stroke-linejoin='round')
+//-                                         g
+//-                                             path(d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2')
+//-                                             circle(cx='9', cy='7', r='4')
+//-                                             path(d='M23 21v-2a4 4 0 0 0-3-3.87')
+//-                                             path(d='M16 3.13a4 4 0 0 1 0 7.75')
+//-                                 div(class="flex-auto min-w-0 my-[4px]")
+//-                                     span(class="font-normal text-base leading-normal block m-0") Customers
+//-                                 svg.feather.feather-chevron-right(width='16', height='16', viewBox='0 0 24 24', fill='none', stroke='currentColor', stroke-width='2', stroke-linecap='round', stroke-linejoin='round')
+//-                                     g
+//-                                         polyline(points='9 18 15 12 9 6')
+//-                                 //- a(class="bg-transparent cursor-pointer text-inherit flex justify-start items-center relative no-underline w-full text-left mt-0 mb-2 mx-0 px-4 py-2 rounded-[9px]" href="")
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Admin
+    style.
+      #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      }
+      #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      }
+      #customers tr:nth-child(even){background-color: #f2f2f2;}
+      #customers tr:hover {background-color: #ddd;}
+      #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #04AA6D;
+      color: white;
+      }
+    body 
+        h1 Danh sách sản phẩm
+        table#customers
+            tbody
+                tr
+                    th Tên sản phẩm
+                    th Giá
+                    th Mô tả
+                    th Chi tiết
+                tr
+                    td Alfreds Futterkiste
+                    td Maria Anders
+                    td Germany
+                    td Xem
+        
+        a(href="admin/create") Thêm sản phẩm 
+                

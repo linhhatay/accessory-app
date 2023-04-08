@@ -36,7 +36,8 @@ const headphoneSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
 });
 
-const Headphone = Product.discriminator('Headphone', headphoneSchema);
+const Headphone = mongoose.model('Headphone', headphoneSchema);
 module.exports = Headphone;
