@@ -1,11 +1,11 @@
-mixin product(name, image)
+mixin product(name, imageCover, price, discount, rating, quantity, slug)
   div(class="slide transition-transform duration-[0.4s] relative flex-[1_0_20%] p-[10px] md:flex-[1_0_calc(100%_/_3)] sm:flex-[1_0_calc(100%_/_2)]")
       div(class="inline-block absolute left-[15px] top-[20px]")
-        span(class="block min-w-[36px] h-[36px] leading-[36px] text-center text-white text-[0.9em] rounded-[50%] bg-orange-500") -37%
+        span(class="block min-w-[36px] h-[36px] leading-[36px] text-center text-white text-[0.9em] rounded-[50%] bg-orange-500")= `${discount}%`
       a(class="cursor-pointer")
-        img(class="w-full object-cover before:content-[''] before:block before:pb-[100%]" src=`${image}` alt='')
+        img(class="w-full object-cover before:content-[''] before:block before:pb-[100%]" src=`/img/products/${imageCover}` alt='')
       div(class="text-[1.15em] px-0 py-[0.8em]")
-        a(class="mt-[0.3em] mb-[1em] text-[0.9em] leading-[1.3] h-[2.5em] overflow-ellipsis line-clamp-2 cursor-pointer")
+        a(class="mt-[0.3em] mb-[1em] text-[0.9em] leading-[1.3] h-[2.5em] overflow-ellipsis line-clamp-2 cursor-pointer" href=`${slug}`)
           = name
         div(class="text-[1.4rem]")
           .product-box__rating
@@ -15,11 +15,11 @@ mixin product(name, image)
             i.fa-solid.fa-star
             i.fa-solid.fa-star
           div(class="text-[1.2em] leading-none")
-            span(class="opacity-60 text-[15px] font-normal text-[#666] line-through mr-[0.3em]")
-              | 500.000
+            -const priceRound = Math.round(price / 1000) * 1000;
+            span(class="opacity-60 text-[15px] font-normal text-[#666] line-through mr-[0.3em]")= priceRound.toLocaleString('vi-VN', { minimumFractionDigits: 0, maximumFractionDigits: 3 })
               span.current-symbol &#x20AB;
-            span(class="text-[#d0011b] text-[16px]")
-              | 300.000
+            -const priceDiscount = Math.round((price - (price * discount / 100)) / 1000) * 1000
+            span(class="text-[#d0011b] text-[16px]")= priceDiscount.toLocaleString('vi-VN', { minimumFractionDigits: 0, maximumFractionDigits: 3 })
               span.current-symbol &#x20AB;
           div(class="text-[#009627] text-[0.9em] mt-[0.5em]")
             i(class="fa-solid fa-check mr-[3px]")
@@ -35,16 +35,18 @@ section(class="relative pt-0 pb-[30px] px-[15px]")
   button.btn-slider.btn--next
     i.fa-solid.fa-chevron-right
   div(class="featured-products slides flex flex-nowrap overflow-hidden md:mx-[10px] md:my-0")
-    +product('Chuột Dareu EM908 (Đen/Trắng/Hồng)', 'https://phukienabc.com/wp-content/uploads/2022/10/Chuot-DAREU-EM908-Den-Trang-Hong-208x208.jpg')
-    +product('Tai Nghe Dareu EH416 Dây USB, Giả Lập 7.1', 'https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg')
-    +product('Bàn Phím Cơ Dareu EK87 Đen/Trắng/Hồng (Blue/Red/Brown Switch)', 'https://phukienabc.com/wp-content/uploads/2022/10/Ban-Phim-Co-DAREU-EK87-Den-Trang-Hong-Blue-Red-Brown-Switch-208x208.jpg')
-    +product('Chuột Không Dây Dareu LM115G (Đen/Trắng/Hồng)', 'https://phukienabc.com/wp-content/uploads/2022/10/Chuot-Khong-Day-DAREU-LM115G-Den-Trang-Hong-208x208.jpg')
-    +product('Bàn Phím Cơ Dareu EK810 Đen/Hồng (Blue/Red/Brown Switch)', 'https://phukienabc.com/wp-content/uploads/2022/10/Ban-Phim-Co-Dareu-EK810-Den-Hong-Blue-Red-Brown-Switch-208x208.jpg')
-    +product('Bàn Di Chuột Dareu ESP100 350x300x5mm', 'https://phukienabc.com/wp-content/uploads/2022/10/Ban-Di-Chuot-DAREU-ESP100-208x208.jpg')
+    //- +product('Chuột Dareu EM908 (Đen/Trắng/Hồng)', 'https://phukienabc.com/wp-content/uploads/2022/10/Chuot-DAREU-EM908-Den-Trang-Hong-208x208.jpg')
+    //- +product('Tai Nghe Dareu EH416 Dây USB, Giả Lập 7.1', 'https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg')
+    //- +product('Bàn Phím Cơ Dareu EK87 Đen/Trắng/Hồng (Blue/Red/Brown Switch)', 'https://phukienabc.com/wp-content/uploads/2022/10/Ban-Phim-Co-DAREU-EK87-Den-Trang-Hong-Blue-Red-Brown-Switch-208x208.jpg')
+    //- +product('Chuột Không Dây Dareu LM115G (Đen/Trắng/Hồng)', 'https://phukienabc.com/wp-content/uploads/2022/10/Chuot-Khong-Day-DAREU-LM115G-Den-Trang-Hong-208x208.jpg')
+    //- +product('Bàn Phím Cơ Dareu EK810 Đen/Hồng (Blue/Red/Brown Switch)', 'https://phukienabc.com/wp-content/uploads/2022/10/Ban-Phim-Co-Dareu-EK810-Den-Hong-Blue-Red-Brown-Switch-208x208.jpg')
+    //- +product('Bàn Di Chuột Dareu ESP100 350x300x5mm', 'https://phukienabc.com/wp-content/uploads/2022/10/Ban-Di-Chuot-DAREU-ESP100-208x208.jpg')
 
-    //- -const headphones = products.filter((product) => product.category === 'Headphone')
-    //- each product in headphones 
-    //-   +product(product.name, 'https://phukienabc.com/wp-content/uploads/2022/10/Ban-Di-Chuot-DAREU-ESP100-208x208.jpg')
+    
+    each product in products 
+      +product(product.name, product.imageCover, product.price, product.discount, product.rating, product.quantity, product.slug)
+
+
 
    
 

@@ -4,42 +4,45 @@ const Product = require('./productModel');
 const keyboardSchema = new mongoose.Schema({
     connection: {
         type: String,
-        required: true,
     },
     layout: {
         type: String,
-        required: true,
     },
     keyCap: {
         type: String,
-        required: true,
     },
-    switch: {
-        type: String,
-        price: { type: Number, required: true },
-        enum: ['Switch Blue', 'Switch Red', 'Switch Brown'],
-    },
+    switch: [
+        {
+            type: {
+                type: String,
+            },
+            price: { type: Number, required: true },
+            quantity: {
+                type: Number,
+                default: 10,
+            },
+        },
+    ],
     driver: {
         type: Boolean,
         default: false,
-        required: true,
     },
     keyConflict: {
         type: String,
-        required: true,
     },
     led: {
         type: String,
-        required: true,
     },
     weight: {
-        type: Number,
-        required: true,
+        type: String,
     },
     size: {
         type: String,
-        required: true,
     },
+    cable: {
+        type: String,
+    },
+    compatibility: { type: String },
     product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
 });
 

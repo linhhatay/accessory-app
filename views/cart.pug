@@ -15,107 +15,114 @@ block content
                         a(class="text-[#ccc]") Đặt Hàng 
         div(class="px-[15px] py-[30px]")
             div
-                div(class="ml-[-30px] mr-[-30px] max-w-[1200px] grid grid-cols-[7fr_5fr] mb-0")
-                    .cart__content
-                        form
-                            table
-                                thead 
-                                    tr 
-                                        th(colspan='3', style="padding-left: 0") Sản phẩm
-                                        th Giá tiền
-                                        th Số lượng
-                                        th(style="padding-right: 0") Tạm tính
-                                tbody 
-                                    tr
-                                        td.cart-product-remove
-                                            a.remove(href='')
-                                                i.fa-solid.fa-xmark
-                                        td.cart-product-thumbnail
-                                            a(href='https://phukienabc.com/tai-nghe-dareu-eh416/')
-                                                img(width='208' height='208' src='https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg' alt='Tai Nghe Dareu EH416' decoding='async' loading='lazy' srcset='//phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg 208w, //phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-100x100.jpg 100w, //phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416.jpg 640w' sizes='(max-width: 208px) 100vw, 208px')
-                                        td.cart-product-name
-                                            a(href='https://phukienabc.com/tai-nghe-dareu-eh416/') Tai Nghe Dareu EH416 Dây USB, Giả Lập 7.1
-                                            //- div
-                                            //-     span 1 x 
-                                            //-     span
-                                            //-         bdi
-                                            //-         | 349.000
-                                            //-         span &#x20AB;
-                                        td.cart-product-price(data-title='Giá tiền')
-                                            span
-                                                bdi
-                                                    | 349.000
-                                                    span &#x20AB;
-                                        td.cart-product-quantity(data-title='Số lượng')
-                                            form 
-                                                .quantity
-                                                    .btn.btn--minus
-                                                        svg(focusable='false', style='width: 10px; height: 10px;', viewBox='0 0 10 2', role='presentation')
-                                                            path(d='M10 0v2H0V0z', fill='currentColor')
-                                                    input(type='number', value='1')
-                                                    .btn.btn--plus
-                                                        svg(focusable='false', style='width: 10px; height: 10px;', viewBox='0 0 10 10', role='presentation')
-                                                            path(d='M6 4h4v2H6v4H4V6H0V4h4V0h2v4z', fill='currentColor', fill-rule='evenodd')
-                                        td.product-subtotal(data-title='Tạm tính')
-                                            span
-                                                bdi
-                                                    | 349.000
-                                                    span &#x20AB;
-                                    tr 
-                                        td(colspan='6')
-                                            .continue-shopping
-                                                a.button-continue-shopping(href='/')
-                                                    | &larr;&nbsp;Mua thêm sản phẩm khác
-                                            button(type='submit' name='update_cart' value='Cập nhật giỏ hàng' disabled='' aria-disabled='true') Cập nhật giỏ hàng
-                                            //- input(type='hidden' name='woocommerce-cart-nonce' value='8a76d046ff')
-                                            //- input(type='hidden' name='_wp_http_referer' value='/gio-hang/')
-                    .cart__collaterals
-                        div
-                            div
+                if cart.length == 0
+                    div(class="pt-[30px] pb-[30px] text-center")
+                        p(class="mb-[1em]") Chưa có sản phẩm nào trong giỏ hàng.
+                        p(class="mb-[1em]")
+                            a(href="/" class="mb-[1em] bg-[#d0011b] text-white inline-block bg-transparent tracking-[0.03em] cursor-pointer text-center no-underline border align-middle leading-[2.4em] min-h-[2.5em] max-w-full mr-[1em] mt-0 mb-2.5 px-[1.2em] py-0 rounded-[3px] border-solid border-transparent") Quay trở lại cửa hàng
+                else
+                    div(class="ml-[-30px] mr-[-30px] max-w-[1200px] grid grid-cols-[7fr_5fr] mb-0")
+                        .cart__content
+                            form(method="POST" action="/cart/update")
                                 table
-                                    thead
-                                        tr
-                                            th(colspan='2') Tính toán chi phí
-                                table
-                                    tbody
-                                        tr
-                                            th(style='padding-left: 0') Giá tiền sản phẩm
-                                            td
-                                                span
-                                                    bdi
-                                                        | 349.000
-                                                        span &#x20AB;
-                                        tr
-                                            td(colspan='2', style="padding: 0")
-                                                table(style="margin-bottom: 0")
-                                                    tbody
-                                                        tr  
-                                                            th(style="border: none") Phí vận chuyển
-                                                            td(style="border: none")
-                                                                ul
-                                                                    li
-                                                                        input(type='hidden'  data-index='0' value='flat_rate:3')
-                                                                        label
-                                                                            | Giao hàng có tính phí:
-                                                                        span
-                                                                            bdi
-                                                                            |  20.000
-                                                                            span &#x20AB;
-                                                                p(style="margin: 0.5em 0")
-                                                                    | Ship hàng tới 
-                                                                    strong Hà Nội
-                                                                    | .
-                                                                form(style="margin-top: 0.5em")
-                                                                    a Thay đổi địa chỉ
-                                        tr
-                                            th Tổng chi phí
-                                            td
-                                                strong
+                                    thead 
+                                        tr 
+                                            th(colspan='3', style="padding-left: 0") Sản phẩm
+                                            th Giá tiền
+                                            th Số lượng
+                                            th(style="padding-right: 0") Tạm tính
+                                    tbody 
+                                        -let total = 0;
+                                        each cartItem in cart
+                                            -total += cartItem.product.price * cartItem.quantity
+                                            tr
+                                                td.cart-product-remove
+                                                    a.remove(href=`${cartItem.product._id}/remove`)
+                                                        i.fa-solid.fa-xmark
+                                                td.cart-product-thumbnail
+                                                    a(href='https://phukienabc.com/tai-nghe-dareu-eh416/')
+                                                        img(width='208' height='208' src=`/img/products/${cartItem.product.imageCover}` alt=`${cartItem.product.name}` decoding='async' loading='lazy' sizes='(max-width: 208px) 100vw, 208px')
+                                                td.cart-product-name
+                                                    a(href='https://phukienabc.com/tai-nghe-dareu-eh416/')= cartItem.product.name
+                                                    //- div
+                                                    //-     span 1 x 
+                                                    //-     span
+                                                    //-         bdi
+                                                    //-         | 349.000
+                                                    //-         span &#x20AB;
+                                                td.cart-product-price(data-title='Giá tiền')
                                                     span
                                                         bdi
-                                                        | 369.000
-                                                        span &#x20AB;
-                                .wc-proceed-to-checkout
-                                    a(href='/')
-                                        | Tiến hành thanh toán
+                                                            = cartItem.product.price 
+                                                            span &#x20AB;
+                                                td.cart-product-quantity(data-title='Số lượng')
+                                                    div 
+                                                        .quantity
+                                                            .btn.btn--minus
+                                                                svg(focusable='false', style='width: 10px; height: 10px;', viewBox='0 0 10 2', role='presentation')
+                                                                    path(d='M10 0v2H0V0z', fill='currentColor')
+                                                            input(type='number', value=`${cartItem.quantity}` class="quantity-select" name=`quantity[]`)
+                                                            .btn.btn--plus
+                                                                svg(focusable='false', style='width: 10px; height: 10px;', viewBox='0 0 10 10', role='presentation')
+                                                                    path(d='M6 4h4v2H6v4H4V6H0V4h4V0h2v4z', fill='currentColor', fill-rule='evenodd')
+                                                td.product-subtotal(data-title='Tạm tính')
+                                                    span
+                                                        bdi
+                                                            = cartItem.product.price * cartItem.quantity
+                                                            span &#x20AB;
+                                        tr 
+                                            td(colspan='6')
+                                                .continue-shopping
+                                                    a.button-continue-shopping(href='/')
+                                                        | &larr;&nbsp;Mua thêm sản phẩm khác
+                                                button(type='submit' value='Cập nhật giỏ hàng' aria-disabled='true') Cập nhật giỏ hàng
+                        .cart__collaterals
+                            div
+                                div
+                                    table
+                                        thead
+                                            tr
+                                                th(colspan='2') Tính toán chi phí
+                                    table
+                                        tbody
+                                            tr
+                                                th(style='padding-left: 0') Giá tiền sản phẩm
+                                                td
+                                                    span
+                                                        bdi
+                                                            = total
+                                                            span &#x20AB;
+                                            tr
+                                                td(colspan='2', style="padding: 0")
+                                                    table(style="margin-bottom: 0")
+                                                        tbody
+                                                            tr  
+                                                                th(style="border: none") Phí vận chuyển
+                                                                td(style="border: none")
+                                                                    ul
+                                                                        li
+                                                                            input(type='hidden'  data-index='0' value='flat_rate:3')
+                                                                            label
+                                                                                | Giao hàng có tính phí:
+                                                                            span
+                                                                                bdi
+                                                                                |  20.000
+                                                                                span &#x20AB;
+                                                                    p(style="margin: 0.5em 0")
+                                                                        | Ship hàng tới 
+                                                                        strong Hà Nội
+                                                                        | .
+                                                                    form(style="margin-top: 0.5em")
+                                                                        a Thay đổi địa chỉ
+                                            tr
+                                                th Tổng chi phí
+                                                td
+                                                    strong
+                                                        span
+                                                            bdi
+                                                            = total
+                                                            span &#x20AB;
+                                    .wc-proceed-to-checkout
+                                        a(href='/')
+                                            | Tiến hành thanh toán
                             

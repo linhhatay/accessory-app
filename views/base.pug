@@ -14,7 +14,23 @@ body
             include partials/_section
             //- include partials/_section
         //- .overlay.hidden
-        include ./cartPopup
+    include ./cartPopup
     include partials/_footer
 
     script(src='./js/bundle.js')
+
+    script.
+        const headerCart = document.querySelector('.header__cart');
+        const cartPopup = document.querySelector('.cart-popup');
+        const cartContent = cartPopup.querySelector('.cart-popup-content');
+
+
+        headerCart.addEventListener('click', () => {
+            fetch('/get-cart')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (cart) {
+                    console.log(cart);
+                });
+        });

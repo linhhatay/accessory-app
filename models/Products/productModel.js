@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const productSchema = new mongoose.Schema(
     {
@@ -7,6 +8,7 @@ const productSchema = new mongoose.Schema(
             required: [true, 'A product must have a name'],
             unique: true,
         },
+        slug: String,
         rating: {
             type: Number,
             default: 4.5,
@@ -48,6 +50,11 @@ const productSchema = new mongoose.Schema(
         timestamps: true,
     },
 );
+
+productSchema.pre('save', function (next) {
+    this.slug = slugify(this.name, { lower: true });
+    next();
+});
 
 const Product = mongoose.model('Product', productSchema);
 module.exports = Product;

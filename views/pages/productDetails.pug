@@ -4,23 +4,18 @@ block content
     .container
         div(class="min-h-[60px] max-w-[1170px] pt-[20px] pb-[10px] px-[15px]")
             div
-                h1.heading-primary Tai Nghe Dareu EH416 Dây USB, Giả Lập 7.1
+                h1(class="heading-primary product-name")= product.name
                 include ../components/breadCrumbs
         div(class="h-px max-w-[calc(100%_-_30px)] m-auto bg-gray-300")
 
         div
             div(class="grid grid-cols-[5fr_4fr_3fr] pt-[20px]")
                 div(class="px-[15px] py-0")
-                    img(class="w-full mb-[15px]" src="https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416.jpg") 
+                    img(class="w-full mb-[15px]" src=`/img/products/${product.imageCover}`) 
                     div(class="flex")
-                        a
-                            img(src='https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg')
-                        a
-                            img(src='https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg')
-                        a
-                            img(src='https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg')
-                        a
-                            img(src='https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg')
+                        each thumb in product.images
+                            a
+                                img(src=`/img/products/${thumb}`)
                 .call-to-action
                     .product-rating
                         div 
@@ -32,22 +27,24 @@ block content
                         span.reviews-counter (40 đánh giá)
                     .product-price
                         p 
-                            span 500.000d
-                            span 349.000d
+                            -const priceRound = Math.round(product.price / 1000) * 1000;
+                            span= priceRound.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
+                            -const priceDiscount = Math.round((product.price - (product.price * product.discount / 100)) / 1000) * 1000
+                            span(class="product-current-price")= priceDiscount.toLocaleString('vi-VN', { minimumFractionDigits: 0, maximumFractionDigits: 3 })
                     .vat 
                         span Có VAT 
                         span Bảo hành 24 Tháng
-                    form 
+                    form(method="POST" action=`/${product._id}/add-to-cart`) 
                         .quantity
                             .btn.btn--minus
                                 svg(focusable='false', style='width: 10px; height: 10px;', viewBox='0 0 10 2', role='presentation')
                                     path(d='M10 0v2H0V0z', fill='currentColor')
-                            input(type='number', value='1')
+                            input(class="quantity-select" type='number', value='1' name="quantity")
                             .btn.btn--plus
                                 svg(focusable='false', style='width: 10px; height: 10px;', viewBox='0 0 10 10', role='presentation')
                                     path(d='M6 4h4v2H6v4H4V6H0V4h4V0h2v4z', fill='currentColor', fill-rule='evenodd')
                         .cta-button
-                            button.product-add-to-cart Thêm vào giỏ hàng
+                            button.product-add-to-cart(type="submit") Thêm vào giỏ hàng
                             a.product-buy-now Mua Ngay
                 div(class="pl-[10px] pt-0 pb-[30px] px-[15px]")
                     aside(class="mb-[20px]")

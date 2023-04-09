@@ -6,6 +6,7 @@ const Mousepad = require('../models/Products/mousepadModel');
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');
 const AppError = require('../utils/appError');
+
 const multer = require('multer');
 const sharp = require('sharp');
 
@@ -30,17 +31,18 @@ exports.uploadProductImages = upload.fields([
 ]);
 
 exports.resizeImages = catchAsync(async (req, res, next) => {
-    if (!req.files.imageCover || !req.files.images) return next();
+    if (!req.files.imageCover) return next();
 
     // 1) Cover image
-    req.body.imageCover = `product-${Math.random()}-${Date.now()}-cover.jpeg`;
+    req.body.imageCover = `product-${Date.now()}-cover.jpeg`;
     await sharp(req.files.imageCover[0].buffer)
-        .resize(2000, 1333)
+        .resize(640, 640)
         .toFormat('jpeg')
         .jpeg({ quality: 90 })
         .toFile(`public/img/products/${req.body.imageCover}`);
 
     // 2) Images
+    if (!req.files.images) return next();
     req.body.images = [];
 
     await Promise.all(
