@@ -67,11 +67,16 @@ header(class="h-[80px] shadow-[1px_1px_10px_rgba(0,0,0,0.15)]")
               b 0858.577.555
             i.fa-solid.fa-phone-flip
         li(class="relative h-[30px] align-middle mx-[7.5px] my-0 border-l-[rgba(0,0,0,0.1)] border-l border-solid md:hidden")
+        
         li.header__nav-item.header__cart
-          a(class="flex items-center !pr-[55px] rounded-[3px]")
+          a( class="flex items-center !pr-[55px] rounded-[3px]")
             span(class="md:hidden") Giỏ hàng 
             i(class="fa-solid fa-bag-shopping min-w-[1em]")
-            span.cart-quantity 0
+            -let count = 0;
+            if cart 
+              each item in cart 
+                -count += item.quantity
+            span.cart-quantity= count
 
 
        

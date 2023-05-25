@@ -1,7 +1,7 @@
 mixin product(name, imageCover, price, discount, rating, quantity, slug)
   div(class="slide transition-transform duration-[0.4s] relative flex-[1_0_20%] p-[10px] md:flex-[1_0_calc(100%_/_3)] sm:flex-[1_0_calc(100%_/_2)]")
       div(class="inline-block absolute left-[15px] top-[20px]")
-        span(class="block min-w-[36px] h-[36px] leading-[36px] text-center text-white text-[0.9em] rounded-[50%] bg-orange-500")= `${discount}%`
+        span(class="block min-w-[36px] h-[36px] leading-[36px] text-center text-white text-[0.9em] rounded-[50%] bg-orange-500")= `-${discount}%`
       a(class="cursor-pointer")
         img(class="w-full object-cover before:content-[''] before:block before:pb-[100%]" src=`/img/products/${imageCover}` alt='')
       div(class="text-[1.15em] px-0 py-[0.8em]")

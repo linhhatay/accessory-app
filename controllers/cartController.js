@@ -9,7 +9,6 @@ exports.addToCart = catchAsync(async (req, res, next) => {
         req.session.cart = [];
     }
     const productIndex = req.session.cart.findIndex((item) => item.product._id === req.params.id);
-    console.log(req.session.cart);
     if (productIndex !== -1) {
         req.session.cart[productIndex].quantity += parseInt(quantity);
     } else {
@@ -25,13 +24,13 @@ exports.removeItemCart = catchAsync(async (req, res, next) => {
     if (productIndex !== -1) {
         cart.splice(productIndex, 1);
     }
-    res.redirect('/cart');
+    res.redirect('back');
 });
 
 exports.getItemCart = catchAsync(async (req, res, next) => {
     const cart = req.session.cart || [];
 
-    res.status(200).json(cart);
+    res.redirect('back', { cart });
 });
 
 exports.updateCart = catchAsync(async (req, res, next) => {

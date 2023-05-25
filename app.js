@@ -4,7 +4,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
-const port = 3000;
 const app = express();
 const route = require('./routes');
 

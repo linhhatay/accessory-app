@@ -1,9 +1,9 @@
-mixin product(name)
+mixin product(name, discount, imageCover)
   .product-box
       .product-box__badge
-        span -37%
+        span= `${discount}%`
       .product-box__image
-        img(src='https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg' alt='')
+        img(src=`/img/products/${imageCover}` alt='')
       .product-box__text
         .product-box__text-name
           = name

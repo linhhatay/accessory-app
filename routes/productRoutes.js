@@ -7,6 +7,7 @@ router
     .post(productController.uploadProductImages, productController.resizeImages, productController.createProduct)
     .get(productController.getAllProduct);
 
-router.route('/:id').get(productController.getProduct);
+router.route('/:id').get(productController.getProduct).patch(productController.updateProduct);
+router.route('/category/:categoryId').get(productController.getProductByCategory);
 
 module.exports = router;

@@ -4,18 +4,20 @@
             h4 Giỏ hàng
             .is-divider
         .cart-popup-content
-            if true
+            -const check = !cart || cart.length === 0
+            if check
                 p Chưa có sản phẩm nào trong giỏ hàng.
             else  
                 ul(class="mb-[1em] list-disc")
-                    li(class="mb[8px] min-h-[80px] relative overflow-hidden align-top leading-[1.33] pl-2.5 pr-0 pr-[30px] pt-2.5 pb-[15px]")
-                        a(href="" class="absolute z-[9] right-0 block w-[24px] h-[24px] text-base leading-[24px] text-[#666] text-center border rounded-[100%] border-solid border-[#888]") x 
-                        a(href="" class="block overflow-hidden text-ellipsis leading-[1.3] mb-[5px] p-0")
-                            img(src="https://phukienabc.com/wp-content/uploads/2022/10/Tai-Nghe-DAREU-EH416-208x208.jpg") 
-                            | Tai Nghe Dareu EH416 Dây USB, Giả Lập 7.1
-                        span(class="block mt-[3px]")
-                            | 1 x 
-                            span(class="text-[1.1em] text-[#333]") 349.000đ 
+                    each item in cart
+                        li(class="mb[8px] min-h-[80px] relative overflow-hidden align-top leading-[1.33] pl-2.5 pr-0 pr-[30px] pt-2.5 pb-[15px]")
+                            a(href=`/${item.product._id}/remove` class="remove-item absolute z-[9] right-0 block w-[24px] h-[24px] text-base leading-[24px] text-[#666] text-center border rounded-[100%] border-solid border-[#888]") x 
+                            a(href="" class="block overflow-hidden text-ellipsis leading-[1.3] mb-[5px] p-0")
+                                img(src=`/img/products/${item.product.imageCover}`) 
+                                = item.product.name
+                            span(class="block mt-[3px]")
+                                | 1 x 
+                                span(class="text-[1.1em] text-[#333]") 349.000đ 
                 p(class="text-center h-[40px] leading-[40px] mb-[0.5em] bg-neutral-100")
                     strong(class="font-normal") Tạm tính: 
                     span(class="text-[1.2em] text-[#d0011b]") 349.000đ
